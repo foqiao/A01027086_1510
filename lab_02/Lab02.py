@@ -1,16 +1,11 @@
 import random
 
-def roll_dice():
-    number_of_rolls = random.randint(1, 100)
-    number_of_side = random.randint(1, 6)
-
-    if number_of_rolls >= 1:
-         random_total = int(number_of_side) * int(number_of_rolls)
+def roll_dice(number_of_roll, number_of_side):
+    if number_of_roll >= 1:
+         random_total = int(number_of_side) * int(number_of_roll)
          print("Your value is " + str(random_total))
     else:
          print("It is impossible to calculate the result.")
-
-roll_dice()
 
 def create_name(name):
     name = input_name.title()
@@ -18,6 +13,9 @@ def create_name(name):
         print("Your name is " + name)
     else:
         return None
-
-input_name = str(input("Please enter a name you want to have: "))
-create_name(input_name)
+if __name__ == '__main__':
+    number_of_rolls = int(input("Please enter how many times you want to roll this round: "))
+    number_of_sides = int(input("Please enter the number you rolled this round: "))
+    roll_dice(number_of_rolls, number_of_sides)
+    input_name = str(input("Please enter a name you want to have: "))
+    create_name(input_name)

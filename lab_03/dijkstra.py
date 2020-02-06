@@ -1,14 +1,7 @@
-import random
 
-def dijkstra(dutch):
-    color = random.choice(dutch)
-    random_color = int(len(str(color)))
-    for random_color in range(0, 5):
-        if int(random_color) == 3:
-            print(color)
-        elif int(random_color) == 4:
-            print(color)
-        elif int(random_color) == 5:
-            print(color)
-        else:
-            return None
+def dijkstra():
+    dutch = ["white", "white", "white", "red", "red", "blue", "blue"]
+    flag = [dutch[3], dutch[4], dutch[0], dutch[1], dutch[2], dutch[5], dutch[6]]
+    print(flag)
+
+dijkstra()

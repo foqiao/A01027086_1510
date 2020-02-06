@@ -132,16 +132,16 @@ def compound_interest(principal, annual_interest_rate, annual_compound_time_of_i
     :param time_duration: the time have spent for the account since the year it created
     :return: return the amount of principal remained in the account
     """
-    Amount = int(principal) * int(1 + float(annual_interest_rate) / int(annual_compound_time_of_interest_rate)) \
-             ** int(int(annual_compound_time_of_interest_rate) * float(annual_interest_rate))
+    Amount = float(principal) * float(1 + float(annual_interest_rate) / float(annual_compound_time_of_interest_rate)) \
+             ** float(float(annual_compound_time_of_interest_rate) * float(annual_interest_rate))
     print(float(Amount))
 
 
-input_principal = int(input("Please enter the initial value of your bank account: "))
+input_principal = float(input("Please enter the initial value of your bank account: "))
 input_annual_interest_rate = float(input("Please enter the annual interest rate of your plan: "))
 input_annual_time_of_interest_rate = \
-    int(input("Please enter how many times the your interest rate compounded annually: "))
-input_time_duration = int(input("Please enter the years of the bank account since it created initially: "))
+    float(input("Please enter how many times the your interest rate compounded annually: "))
+input_time_duration = float(input("Please enter the years of the bank account since it created initially: "))
 compound_interest(input_principal, input_annual_interest_rate, input_annual_time_of_interest_rate, input_time_duration)
 
 
@@ -250,7 +250,7 @@ def number_translator():
     eight = "TUV"
     nine = "WXYZ"
 
-    digits_stay_still = str(user_input.index(0, 2))
+    digits_stay_still = str(range(user_input.index(0), user_input.index(2)))
     digits_for_conversion = str(user_input.index(4, 11))
 
     if random.choice(str(digits_for_conversion)) == random.choice(str(two)):
