@@ -5,6 +5,10 @@ def grade(first_grade, second_grade, third_grade, fourth_grade, fifth_grade):
   grade_list.sort()
   print(grade_list)
 
+def quotes(string, substring):
+    if str(substring) == random.choice(str(string)):
+        print("The substring " + str(substring) + " is within the string " + str(string))
+
 def my_id():
     my_id_string = [4353, 2314, 2956, 3382, 9362, 3900]
 
@@ -25,5 +29,9 @@ if __name__ == '__main__':
     random_fourth_grade = random.randint(0, 100)
     random_fifth_grade = random.randint(0, 100)
     grade(random_first_grade, random_second_grade, random_third_grade, random_fourth_grade, random_fifth_grade)
+
+    string_input = str(input("Please enter a string you currently think off: "))
+    substring_input = str(input("Please enter the substring of the string you entered previously: "))
+    quotes(string_input, substring_input)
 
     my_id()
