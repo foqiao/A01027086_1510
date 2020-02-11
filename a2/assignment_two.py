@@ -16,8 +16,8 @@ def roll_dice(number_of_rolls, number_of_sides, syllable_output_index):
     number_of_rolls = range(1, 3, 1)
     number_of_sides = range(1, 12, 1)
 
-def generate_name(syllable):
-    syllable = syllable_output_index
+def generate_name(syllable0):
+    syllable0 = syllable_output_index
     vowel = ['a', 'e', 'i', 'o', 'u', 'y']
 
     def generate_vowel():
@@ -36,14 +36,14 @@ def generate_name(syllable):
 
     return syllable
 
-def create_character(syllable, syllable_output_index2):
+def create_character(syllable1, syllable_output_index):
     syllable_output_index2 = syllable_output_index
     player = []
-    player_name = generate_name(syllable, syllable_output_index2)
+    player_name = generate_name(syllable1)
     player.append(player_name)
 
     def select_class(dice_of_classes, roles_of_classes, races_of_classes):
-        if player_response == random.choice(dice_of_classes):
+        if player_response == random.choice(str(dice_of_classes)):
             dice_of_classes = {
                 "1": 1,
                 "2": 2,
