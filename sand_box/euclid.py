@@ -1,12 +1,5 @@
-import random
-
-def two_jars():
-    x = random.randrange(1, );
-    jar_one = 3 / 4 * 300
-    jar_two = 1 / 4 * x
-    if x > 0:
-        x = int(jar_one) / (1 / 4)
-        return x
-    else:
-        return None
-two_jars()
+def two_jars(water_level1, water_level2):
+    water_level1 = 300
+    water_level2_fraction = 1 / 4
+    water_level1_fraction = 3 / 4
+    water_level2_fraction * water_level1
