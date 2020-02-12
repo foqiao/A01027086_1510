@@ -65,11 +65,11 @@ def create_character(syllable1, syllable_output_index):
         player_second_response1 = int(input("Please enter the side of your second roll(e.g. 1, 2): "))
         if player_second_response1 == random.choice(roles_of_classes):
             roles_of_classes = {"fighter": 0, "barbarian": 1, "cleric": 2, "ranger": 3, "rogue": 4, "wizard": 5,
-                                "Monk": 6, "Bard": 7, "Druid": 8, "Paladin": 9, "Sorcerer": 10, "Warlock": 11,
-                                0: range(100, 0, -1), 1: range(100, 0, -1), 2: range(100, 0, -1), 3: range(100, 0, -1),
+                                "Monk": 6, "Bard": 7, "Druid": 8, "Paladin": 9, "Sorcerer": 10, "Warlock": 11 }
+            roles_of_classes_health = {0: range(100, 0, -1), 1: range(100, 0, -1), 2: range(100, 0, -1), 3: range(100, 0, -1),
                                 4: range(100, 0, -1), 5: range(100, 0, -1), 6: range(100, 0, 1), 7: range(100, 0, 1),
                                 8: range(100, 0, 1), 9: range(100, 0, 1), 10: range(100, 0, 1), 11: range(100, 0, 1)}
-            player_second_response_storage = player_second_response
+            player_second_response_storage = roles_of_classes
         else:
             print("Warning! Invalid input!")
 
@@ -147,80 +147,89 @@ def print_character(character, player_response_storage, player_second_response_s
 
 def choose_inventory(outfit):
 
-    shop_items = ["sword", "dagger", "chalice of becoming", "orb of discovery"]
-    bag_list = []
+    shop_items = {
+        "sword": 1,
+        "dagger": 2,
+        "chalice of becoming": 3,
+        "orb of discovery": 4,
+        "Herb": 5,
+        "Malaysian Sword": 6,
+        "Upgrade defense": 7,
+        "more": 8,
+        "Special Curse": 9
+    }
 
-    print("Here is the list of outfits you can have, ")
-    print("1.sword")
-    print("2.dagger")
-    print("3.chalice of becoming")
-    print("4.orb of discovery")
-    print("5.more")
-    print("-1.finish")
+    return shop_items
+
+    current_bag_list = {
+        "knife": 1,
+        "shield": 2
+    }
+
+    print(current_bag_list)
 
     if outfit == 1:
         print("sword is what you want")
-        bag_list.append("sword")
-        if random.choice(bag_list) == random.choice(shop_items):
+        bag_list[-1].append("sword")
+        if random.choice(bag_list) == "sword":
             print("You already have sword")
     elif outfit == 2:
         print("dagger is what you want")
-        bag_list.append("dagger")
-        if random.choice(bag_list) == random.choice(shop_items):
+        bag_list[-1].append("dagger")
+        if random.choice(bag_list) == "dagger":
             print("You already have dagger")
     elif outfit == 3:
         print("chalice of becoming is what you want")
-        bag_list.append("chalice of becoming")
-        if random.choice(bag_list) == random.choice(shop_items):
+        bag_list[-1].append("chalice of becoming")
+        if random.choice(bag_list) == "chalice of becoming":
             print("You already have chalice of becoming")
     elif outfit == 4:
         print("orb of discovery is what you want")
-        bag_list.append("orb of discovery")
-        if random.choice(bag_list) == random.choice(shop_items):
+        bag_list[-1].append("orb of discovery")
+        if random.choice(bag_list) == "orb of discovery":
             print("You already have orb of discovery")
     elif outfit == 5:
-        print("nothing is available yet")
-
-    choice = int(input("Do you want to leave? (-1 for exit):"))
-    if choice == -1:
+        print("Herb")
+    elif outfit == 6:
+        print("Malaysian Sword")
+        bag_list[-1].append("Malaysian Sword")
+        if random.choice(bag_list) == "Malaysian Sword":
+            print("You already have Malaysian Sword")
+    elif outfit == 7:
+        print("upgrade defense is what you want")
+        bag_list[-1].append("upgrade defense")
+        if random.choice(bag_list) == "upgrade defense":
+            print("You already have upgrade defense")
+    elif outfit == 8:
+        print("more coming")
+    elif outfit == 9:
+        print("Special Curse is what you want")
+        bag_list[-1].append("Special Curse")
+        if random.choice(bag_list) == "Special Curse":
+            print("Another Special Curse is what you want")
+    elif outfit != NaN:
+        print("invalid, try again")
+    else:
         exit(outfit)
 
-def combat_round(opponent1, opponent2, roles_of_classes, inventory, Monsters):
-    Player_choice = str(input("Please enter the inventory you want to fight the monster(e.g. Sword, Shield, Knife): "))
+def combat_round(Player_spec, Player_roll1, Monster_roll1):
+    Player_specs = {
+        "health": range(100, 0, -1),
+        "weapon": bag_list
+    }
+    print(Player_specs)
 
-    opponent1 = player_second_response_storage
-    opponent2 = Monsters
-    Individual_fighter = random.choice(opponent1)
-    Individual_monster = random.choice(opponent2)
+    Monster_specs = {
+        "health": range(100, 0, -1),
+        "weapon": None
+    }
+    print(Monster_specs)
 
-    if Player_choice == inventory[0]:
-        Individual_monster_blood = range(100, 0, -1)
-        Individual_monster_lose = Individual_monster_blood - 1
+    Player_dice = random.choice(number_of_side)
+    Player_attack = int(Player_roll) * int(Player_dice)
 
-    exp = 0
-
-    if Individual_monster == 0:
-        exp_incline = int(exp) + 1
-        opponent2.remove(Individual_monster)
-        print("Hooray!")
-        print(opponent2)
-        print(exp_incline)
-
-    elif Player_choice == inventory.index(1, 2):
-        Individual_monster_remain = range(100, 0, -1)
-        Individual_monster_lose = Individual_monster_remain
-        print("Dodge!")
-        print(opponent2)
-
-    elif Player_choice != random.choice(inventory):
-        roles = random.choice(roles_of_classes)
-
-        roles_blood = roles - 1
-
-    else:
-        print("Warning! Invalid input")
-        roles = random.choice(roles_of_classes)
-        roles_blood = roles - 1
+    Monster_dice = random.choice(number_of_side)
+    Monster_attack = int(Monster_roll) * int(Monster_dice)
 
 if __name__ == '__main__':
     player_response = int(input("Please enter the side of your first roll(e.g. 1, 2): "))
@@ -248,23 +257,26 @@ if __name__ == '__main__':
 
     choose_inventory(outfit1)
 
-    opponent1_1 = player_second_response_storage
-    Monsters1 = ["M1", "M2", "M3"]
-    opponent2_1 = Monsters1
+    Player_roll = int(input("Please enter the number of rolls you want to have:"))
+    Monster_roll = random.choice(number_of_roll)
 
-    roles_of_classes1 = {"fighter": 0, "barbarian": 1, "cleric": 2, "ranger": 3, "rogue": 4, "wizard": 5,
-                            "Monk": 6, "Bard": 7, "Druid": 8, "Paladin": 9, "Sorcerer": 10, "Warlock": 11,
-                            0: range(100, 0, -1), 1: range(100, 0, -1), 2: range(100, 0, -1), 3: range(100, 0, -1),
-                            4: range(100, 0, -1), 5: range(100, 0, -1), 6: range(100, 0, 1), 7: range(100, 0, 1),
-                            8: range(100, 0, 1), 9: range(100, 0, 1), 10: range(100, 0, 1), 11: range(100, 0, 1)}
+    bag_list = int(input("Please enter the index value of the weapon you want from 0-first_weapon to ##-last " +
+                              "weapon: "))
 
-    old_user_inventory = {
-        "Sword": 1,
+    Player_specs1 = {
+        "health": range(100, 0, -1),
+        "weapon": bag_list
     }
-    new_user_inventory = {
-        "Knife": 1
+    del Player_specs1["weapon"]
+
+    current_bag_list1 = {
+        "knife": 1,
+        "shield": 2
     }
 
-    inventory1 = old_user_inventory or new_user_inventory
+    if int(bag_list) == range(current_bag_list1.index(0), current_bag_list1.index(-1)):
+        Player_specs1["weapon"] = current_bag_list1.index(int(bag_list))
+    else:
+        print("Invalid index value")
 
-    combat_round(opponent1_1, opponent2_1, roles_of_classes1, inventory1, Monsters1)
+    combat_round(Player_specs1, Player_roll, Monster_roll)
