@@ -56,7 +56,7 @@ def choose_inventory(outfit):
 
     return outfit
 
-    bag_list = {
+    purchased_items = {
         "knife": 1,
         "shield": 2
     }
@@ -65,24 +65,22 @@ def choose_inventory(outfit):
         purchased_items = random.randrange(outfit.values(3), outfit.values(9));
 
 
-def combat_round(Player_spec, Player_roll1, Monster_roll1):
-    Player_specs = {
+def combat_round(Player_spec, number_of_sides, number_of_rolls):
+    picked_character = {
         "health": range(100, 0, -1),
         "weapon": bag_list
     }
-    print(Player_specs)
-
+    picked_second_character = {
+        "health": range(100, 0, -1),
+        "weapon": bag_list
+    }
+    return picked_character
     Monster_specs = {
         "health": range(100, 0, -1),
         "weapon": None
     }
-    print(Monster_specs)
-
-    Player_dice = random.choice(number_of_side)
-    Player_attack = int(Player_roll) * int(Player_dice)
-
-    Monster_dice = random.choice(number_of_side)
-    Monster_attack = int(Monster_roll) * int(Monster_dice)
+    for number_of_sides in range(1, 12):
+        if number_of_rolls
 
 if __name__ == '__main__':
     player_response = int(input("Please enter the side of your first roll(e.g. 1, 2): "))
