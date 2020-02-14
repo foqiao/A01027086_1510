@@ -5,7 +5,7 @@ from numpy import NaN
 
 def roll_dice(number_of_roll, number_of_side):
     if number_of_side <= 12 or number_of_side < 0:
-        if number_of_roll != NaN:
+        if number_of_roll and number_of_side != NaN:
             sum_roll_dice = int(number_of_roll) * int(number_of_side)
             print(sum_roll_dice)
         else:
