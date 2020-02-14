@@ -1,9 +1,15 @@
 import random
 import string
+from numpy import NaN
+
 
 def roll_dice(number_of_roll, number_of_side):
-    sum_roll_dice = number_of_roll * number_of_side
-    return sum_roll_dice
+    if number_of_side <= 12 or number_of_side < 0:
+        if number_of_roll != NaN:
+            sum_roll_dice = int(number_of_roll) * int(number_of_side)
+            print(sum_roll_dice)
+        else:
+            return None
 
 def generate_name(syllable):
     vowel = "aeiouy"
@@ -14,10 +20,10 @@ def generate_name(syllable):
     return syllable
 
 def create_character(character_syllable, second_character_syllables):
-    if character_syllable or second_character_syllables < 0:
+    if int(character_syllable) < 0 or int(second_character_syllables) < 0:
         print("Warning")
         return None
-    elif 1 <= character_syllable or second_character_syllables <= 10:
+    elif 1 <= int(character_syllable) <= 10 or 1 <= int(second_character_syllables) <= 10:
         character_dictionary = {
             1: 'Elf',
             2: 'Orc',
@@ -50,7 +56,7 @@ def choose_inventory():
         "Upgrade defense": 7,
         "more": 8,
         "Special Curse": 9,
-        "-1": exit(choose_inventory())
+        "-1": "exit"
     }
 
     return outfit
@@ -64,6 +70,8 @@ def choose_inventory():
 
     if int(outfits) >= 10 & int(outfits) <= 0:
         purchased_item = random.randrange(outfit.values(3), outfit.values(9))
+    if int(outfits) == -1:
+        exit()
 
 def combat_round():
     picked_character = character_syllables
@@ -100,18 +108,18 @@ def combat_round():
         else:
             return None
 
-
 def purchased_items():
     pass
 
 if __name__ == '__main__':
-    number_of_rolls = random.randint(1, 3)
-    number_of_sides = random.randint(1, 12)
+    number_of_rolls = int(input("Please enter how times you want to roll: "))
+    number_of_sides = int(input("Please enter the side you want to pick for each roll: "))
     roll_dice(number_of_rolls, number_of_sides)
 
     character_syllables = int(input("Please enter a number between 1 and 10 randomly: "))
     second_character_syllable = int(input("Please enter a number between 1 and 10 randomly: "))
     create_character(character_syllables, second_character_syllable)
 
-
     choose_inventory()
+
+    combat_round()
