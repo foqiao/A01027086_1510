@@ -7,14 +7,14 @@ def roll_dice(number_of_roll, number_of_side):
     if number_of_side <= 12 or number_of_side < 0:
         if number_of_roll and number_of_side != NaN:
             sum_roll_dice = int(number_of_roll) * int(number_of_side)
-            print(sum_roll_dice)
         else:
             return None
+    return sum_roll_dice
 
 def generate_name(syllable):
     vowel = "aeiouy"
-    alphabet_string = string.ascii_lowercase
-    consonent = alphabet_string.remove(vowel)
+    consonent = string.ascii_lowercase
+    consonent.strip("aeiou")
 
     syllable = random.choice(vowel) + random.choice(consonent)
     return syllable
@@ -70,6 +70,7 @@ def choose_inventory():
 
     if int(outfits) >= 10 & int(outfits) <= 0:
         purchased_item = random.randrange(outfit.values(3), outfit.values(9))
+        return purchased_item
     if int(outfits) == -1:
         exit()
 
