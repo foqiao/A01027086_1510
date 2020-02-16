@@ -33,9 +33,9 @@ def generate_name(syllable):
 def create_character(character_syllable, second_character_syllables):
     """
 
-    :param character_syllable: 
-    :param second_character_syllables:
-    :return:
+    :param character_syllable: index number user inputs for picking the first character
+    :param second_character_syllables: index number user inputs for picking the second character
+    :return: return the match character through character_dictionary library
     """
     if int(character_syllable) < 0 or int(second_character_syllables) < 0:
         print("Warning")
@@ -62,7 +62,10 @@ def create_character(character_syllable, second_character_syllables):
         return None
 
 def choose_inventory():
+    """
 
+    :return: return the outfit they want to buy and show it in the purchased_item library
+    """
     outfit = {
         "sword": 1,
         "dagger": 2,
@@ -92,6 +95,10 @@ def choose_inventory():
         exit()
 
 def combat_round():
+    """
+
+    :return: the outcome after attack and dodge user performed on characters with the monster
+    """
     picked_character = character_syllables
     picked_second_character = second_character_syllable
     picked_character = {
