@@ -4,6 +4,12 @@ from numpy import NaN
 
 
 def roll_dice(number_of_roll, number_of_side):
+    """
+
+    :param number_of_roll: player choose how many rolls they gonna throw
+    :param number_of_side: player choose the side they want
+    :return: the product of two params represents his/her total of roll_dice function
+    """
     if number_of_side <= 12 or number_of_side < 0:
         if number_of_roll and number_of_side != NaN:
             sum_roll_dice = int(number_of_roll) * int(number_of_side)
@@ -12,6 +18,11 @@ def roll_dice(number_of_roll, number_of_side):
     return sum_roll_dice
 
 def generate_name(syllable):
+    """
+
+    :param syllable: randomly selected syllable contains a vowel and a consonent will be registered as player's name
+    :return: return syllable which contains the randomly selected syllable from both vowel and consonent
+    """
     vowel = "aeiouy"
     consonent = string.ascii_lowercase
     consonent.strip("aeiou")
@@ -20,6 +31,12 @@ def generate_name(syllable):
     return syllable
 
 def create_character(character_syllable, second_character_syllables):
+    """
+
+    :param character_syllable: 
+    :param second_character_syllables:
+    :return:
+    """
     if int(character_syllable) < 0 or int(second_character_syllables) < 0:
         print("Warning")
         return None
