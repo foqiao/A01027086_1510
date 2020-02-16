@@ -1,10 +1,12 @@
 def base_conversion():
 
-    base = int(input("Please enter a base from 2 to 9: "))
+    base = int(input("Please enter a decimal number from 1 to 10: "))
     original_value = int(input("Please enter a number less than and equal: "))
-    maximum_value = base ** 4 - 1
+    user_value = base ** 4 - 1
+    maximum_value = 10 ** 4 - 1
 
-    print("The maximum value of the base is " + str(maximum_value))
+    print("The maximum number of base 10 value is " + str(maximum_value))
+    print("The maximum value of the base is " + str(user_value))
 
     if original_value <= maximum_value:
 
