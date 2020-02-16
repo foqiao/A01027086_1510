@@ -20,20 +20,12 @@ string = "How are you!"
 print(tripler(string))
 
 # define a function with two arguments
-def this_year(a, b):
+def this_year():
     # specify what two parameter gonna do
+    # enter the input value for the function above
+    a = 2000
+    b = 20
     formula = a + b
     return formula
 
-# enter the input value for the function above
-a = 2000
-b = 20
-this_year1 = this_year(a, b)
-print(this_year1)
-
-# invoke one of the above function using if-else clause
-year = input("Please enter a year you currently think of:")
-if year == "2020":
-        print(this_year1)
-else:
-        print("Sorry, next!")
+this_year()
