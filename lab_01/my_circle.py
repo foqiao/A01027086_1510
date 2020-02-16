@@ -26,8 +26,8 @@ print("The value for the area of circle: " + str(area_of_circle))
 print("The value for the area of circle: " + str(area_of_circle1))
 
 # comparing two circumferences and areas and find out how big the new circumference and area compare to the old ones
-circumference_compare = circumference1 / circumference
-area_of_circle_compare = area_of_circle1 / area_of_circle
+circumference_compare = circumference1 - circumference
+area_of_circle_compare = area_of_circle1 - area_of_circle
 
 print("The updated circumference: " + str(circumference_compare))
 print("The updated area_of_circle: " + str(area_of_circle_compare))
