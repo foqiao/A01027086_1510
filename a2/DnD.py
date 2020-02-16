@@ -137,6 +137,9 @@ def purchased_items():
     pass
 
 if __name__ == '__main__':
+    """
+    perform the functions above with inputs and function declarations within the main method
+    """
     number_of_rolls = int(input("Please enter how times you want to roll: "))
     number_of_sides = int(input("Please enter the side you want to pick for each roll: "))
     roll_dice(number_of_rolls, number_of_sides)
