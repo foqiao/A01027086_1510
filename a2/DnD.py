@@ -120,18 +120,24 @@ def combat_round():
 
     return monster
 
-    for number_of_side in range(1, 12):
-        player_roll = random.choice(number_of_sides)
-        monster_roll = random.choice(number_of_sides)
-        if player_roll == monster_roll:
-            player_roll = random.choice(number_of_sides)
-            monster_roll = random.choice(number_of_sides)
-        elif player_roll < monster_roll:
-            player_roll["health"] -= 1
-        elif player_roll > monster_roll:
-            monster_roll["health"] -= 1
-        else:
-            return None
+    player_roll = int(input("Please enter an integer you rolled from 1 to 12: "))
+    second_player_roll = int(input("Please enter an integer you rolled from 1 to 12: "))
+    monster_roll = random.choice(number_of_sides)
+
+    for player_roll in range(1, 12):
+        for second_player_roll in range(1, 12):
+            for monster_roll in range(1, 12):
+                if player_roll == monster_roll:
+                    player_roll = int(input("Please enter another integer from 1 to 12: "))
+                    second_player_roll = int(input("Please enter another integer from 1 to 12: "))
+                    monster_roll = random.choice(number_of_sides)
+                elif player_roll or second_player_roll < monster_roll:
+                    picked_player["health"] -= 1
+                    picked_second_player["health"] -= 1
+                elif player_roll or monster_roll < player_roll or second_player_roll:
+                    monster["health"] -= 1
+                else:
+                    return None
 
 def purchased_items():
     pass

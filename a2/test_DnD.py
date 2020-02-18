@@ -1,6 +1,6 @@
 import unittest
 from syllable import syllable
-from a2.DnD import roll_dice, generate_name, create_character, choose_inventory
+from a2.DnD import roll_dice, generate_name, create_character, choose_inventory, purchased_items
 
 
 class TestCase(unittest.TestCase):
@@ -8,9 +8,9 @@ class TestCase(unittest.TestCase):
         self.assertEqual(roll_dice(2, 5), 10)
 
     def test_generate_name(self):
-        self.assertIn("ab", generate_name(syllable))
-        self.assertIn("ae", generate_name(syllable))
-        self.assertIn("bq", generate_name(syllable))
+        self.assertTrue("ab", generate_name(syllable))
+        self.assertTrue("ae", generate_name(syllable))
+        self.assertTrue("bq", generate_name(syllable))
 
     def test_create_character(self):
         self.assertEqual('Elf Orc', create_character(1, 2))
@@ -20,4 +20,18 @@ class TestCase(unittest.TestCase):
         self.assertIn('Special Curse', choose_inventory())
 
     def test_combat_round(self):
-        self.assertEqual()
+        player_roll = 6
+        second_player_roll = 6
+        monster_roll = 4
+
+        monster = {
+            "health": range(100, 0, -1),
+            "weapon": None
+        }
+
+        picked_second_character = {
+            "health": range(100, 0, -1),
+            "weapon": purchased_items
+        }
+
+        self.assertEqual(player_roll, second_player_roll, monster_roll, monster["health"] - 1)
