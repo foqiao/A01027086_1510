@@ -34,4 +34,5 @@ class TestCase(unittest.TestCase):
             "weapon": purchased_items
         }
 
-        self.assertEqual(player_roll, second_player_roll, monster_roll, monster["health"] - 1)
+        monster_health = monster["health"] - 1
+        self.assertEqual(player_roll, second_player_roll, monster_roll, monster_health)
