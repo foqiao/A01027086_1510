@@ -72,3 +72,10 @@ def human_to_computer(year):
 year1 = int(input('Please enter the year you currently think of: '))
 human_to_computer(year1)
 
+#COMP1510 MIDTERM REVIEW QUESTIONS
+def duck_typing(your_input):
+    if your_input == "12":
+        print("It's a duck type")
+
+your_input1 = int(input("enter an integer: "))
+duck_typing(your_input1)
