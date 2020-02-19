@@ -1,3 +1,4 @@
+"""
 #1 number of boxes package number of apples algorithm
 def apples_vs_boxes(num_boxes, num_apples):
     if num_apples < 20:
@@ -71,7 +72,7 @@ def human_to_computer(year):
 
 year1 = int(input('Please enter the year you currently think of: '))
 human_to_computer(year1)
-
+"""
 #COMP1510 MIDTERM REVIEW QUESTIONS
 def duck_typing(your_input):
     if your_input == "12":
