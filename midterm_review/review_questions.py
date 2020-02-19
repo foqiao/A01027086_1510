@@ -80,3 +80,10 @@ def duck_typing(your_input):
 
 your_input1 = int(input("enter an integer: "))
 duck_typing(your_input1)
+
+j = [2, 3, 6, 6]
+def my_function():
+    i = [1, 2, 3, 4, 5]
+    return i[0] * j[0]
+
+my_function()
