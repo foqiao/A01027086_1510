@@ -102,11 +102,11 @@ def combat_round():
     picked_character = character_syllables
     picked_second_character = second_character_syllable
     picked_character = {
-        "health": range(100, 0, -1),
+        "health": 100,
         "weapon": purchased_items
     }
     picked_second_character = {
-        "health": range(100, 0, -1),
+        "health": 100,
         "weapon": purchased_items
     }
 
@@ -114,7 +114,7 @@ def combat_round():
     return picked_second_character
 
     monster = {
-        "health": range(100, 0, -1),
+        "health": 100,
         "weapon": None
     }
 
@@ -127,15 +127,15 @@ def combat_round():
     for player_roll in range(1, 12):
         for second_player_roll in range(1, 12):
             for monster_roll in range(1, 12):
-                if player_roll == monster_roll:
+                if player_roll + second_player_roll == monster_roll:
                     player_roll = int(input("Please enter another integer from 1 to 12: "))
                     second_player_roll = int(input("Please enter another integer from 1 to 12: "))
                     monster_roll = random.choice(number_of_sides)
-                elif player_roll or second_player_roll < monster_roll:
-                    picked_player["health"] -= 1
+                elif player_roll == monster_roll or second_player_roll < monster_roll:
+                    picked_player -= 1
                     picked_second_player["health"] -= 1
-                elif player_roll or monster_roll < player_roll or second_player_roll:
-                    monster["health"] -= 1
+                elif monster_roll < player_roll or monster_roll < second_player_roll:
+                     monster["health"] -= 1
                 else:
                     return None
 

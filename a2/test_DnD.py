@@ -23,16 +23,4 @@ class TestCase(unittest.TestCase):
         player_roll = 6
         second_player_roll = 6
         monster_roll = 4
-
-        monster = {
-            "health": range(100, 0, -1),
-            "weapon": None
-        }
-
-        picked_second_character = {
-            "health": range(100, 0, -1),
-            "weapon": purchased_items
-        }
-
-        monster_health = monster["health"] - 1
-        self.assertEqual(player_roll, second_player_roll, monster_roll, monster_health)
+        self.assertEqual(player_roll, second_player_roll, monster_roll)
