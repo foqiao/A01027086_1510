@@ -131,8 +131,8 @@ def combat_round():
                     player_roll = int(input("Please enter another integer from 1 to 12: "))
                     second_player_roll = int(input("Please enter another integer from 1 to 12: "))
                     monster_roll = random.choice(number_of_sides)
-                elif player_roll == monster_roll or second_player_roll < monster_roll:
-                    picked_player -= 1
+                elif player_roll < monster_roll or second_player_roll < monster_roll:
+                    picked_player["health"] -= 1
                     picked_second_player["health"] -= 1
                 elif monster_roll < player_roll or monster_roll < second_player_roll:
                      monster["health"] -= 1
