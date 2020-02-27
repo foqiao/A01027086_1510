@@ -9,5 +9,5 @@ class Test(TestCase):
     def test_sparse_add(self):
         vector_input1 = {1: 5, 0: 6, 3: 9, 4: 8}
         vector_input2 = {1: 5, 0: 8, 3: 3, 5: 3}
-        result = {1: 10, 0: 14, 3: 12, 4: 8, 5: 3}
+        result = {'length': 10, 'total': 36}
         self.assertTrue(result, sparse_add(vector_input1, vector_input2))
