@@ -1,4 +1,4 @@
-def sparse_add(vector1: int, vector2: int) -> dict:
+def sparse_add(vector1: dict, vector2: dict) -> dict:
     list_of_sum = {}
     for index1 in vector1:
         for index2 in vector2:
@@ -9,11 +9,11 @@ def sparse_add(vector1: int, vector2: int) -> dict:
                 list_of_sum.update({index1: sum_of_vectors})
     return list_of_sum
 
-def sparse_dot_product(vector1: int, vector2: int) -> dict:
+def sparse_dot_product(vector1: dict, vector2: dict) -> dict:
     list_of_product = {}
     for index1 in vector1:
         for index2 in vector2:
-            if index1 == 'length' or index2 == 'length':
+            if index1 == index2:
                 list_of_product.update({'length': 5})
             else:
                 mul_of_vectors = vector1[index1] * vector2[index1]

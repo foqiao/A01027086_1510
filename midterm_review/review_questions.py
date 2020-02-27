@@ -1,15 +1,14 @@
-"""
 #1 number of boxes package number of apples algorithm
 def apples_vs_boxes(num_boxes, num_apples):
-    if num_apples < 20:
+    num_boxes = 0
+    if 0 < num_apples < 20:
         num_boxes = num_boxes + 1
         print(num_boxes)
-
-    if num_apples < 10:
+    elif 0 < num_apples < 10:
         num_boxes = num_boxes - 1
         print(num_boxes)
 
-num_of_boxes = int(input("Please enter the amount of boxes: "))
+num_of_boxes = 0
 num_of_apples = int(input("Please enter the amount of apples: "))
 apples_vs_boxes(num_of_boxes, num_of_apples)
 
@@ -24,7 +23,7 @@ def multiple_if_statement(user_age):
 
 user_age1 = int(input('Enter age: '))
 multiple_if_statement(user_age1)
-
+"""
 #3 if-else statement practice(indent practice)
 def number_choice(user_choice, num_items):
     if user_choice == 1:
@@ -72,7 +71,7 @@ def human_to_computer(year):
 
 year1 = int(input('Please enter the year you currently think of: '))
 human_to_computer(year1)
-"""
+
 #COMP1510 MIDTERM REVIEW QUESTIONS
 def duck_typing(your_input):
     if your_input == "12":
@@ -87,3 +86,4 @@ def my_function():
     return i[0] * j[0]
 
 my_function()
+"""
