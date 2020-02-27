@@ -2,7 +2,9 @@ from unittest import TestCase
 
 from lab_05.sparse_vector import sparse_dot_product
 
-
+"""
+test second function of sparse_vector.py
+"""
 class Test(TestCase):
     def test_sparse_dot_product(self):
         vector_input1 = {1: 5, 0: 6, 3: 9, 4: 8}
