@@ -1,8 +1,8 @@
 def game():
+    board()
+    character()
     found_exit = exit()
     while not found_exit:
-        board()
-        character()
         user_choice()
         valid_move(board, character, user_choice)
         if valid_move:
