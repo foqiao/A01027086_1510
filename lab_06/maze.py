@@ -12,9 +12,9 @@ def game():
             user_choice()
 
 def board():
-    length = 5
+    length = int(input("Please enter the length of your game board: "))
     min_length = 0
-    width= 5
+    width = int(input("Please enter the width of your game board: "))
     min_width = 0
     print("The board is %d * %d." % (length, length))
     print("The minimum coordinate is (%d,%d)." % (min_length, min_width))
@@ -22,23 +22,21 @@ def board():
 
 def character():
     user_choice()
-    if 0 <= move_length <= 5:
-        if 0 <= move_width <= 5:
-            location = "Your are (%d,%d) from previous location." % (move_length, move_width)
-            return str(location)
+    moving_log = {}
+    steps = range(0, 25)
+    for i in steps:
+        moving_log.update({i: "(%d,%d)" % (move_length, move_width)})
+        total_length = move_length + moving_log[i][2]
+        total_width = move_width + moving_log[i][4]
 
 def user_choice():
     move_length = int(input("Please enter how many steps you want to move horizontally: "))
     move_width = int(input("Please enter how many steps you want to move vertically: "))
-    moving_log = {}
-    steps = range(0, 25)
-    for i in steps:
-        moving_log.update({ i: "(%d,%d)" % (move_length, move_width) })
-        steps.pop(i)
-        return moving_log[i]
 
 def valid_move(board_input, character_input, user_choice_input):
-    
+    user_choice()
+    character()
+
 
 if __name__ == '__main__':
     game()
