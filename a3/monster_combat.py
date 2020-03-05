@@ -97,13 +97,13 @@ def run_away(player: dict, monster: dict):
         print("%s successfully flees from battle unharmed!" % (player['Name']))
 
 #healing function I wrote.
-def healing(player: dict, monster: dict) -> str:
+def healing(player: dict):
     """elements and blocks needed for healing process"""
     player_HP = player['HP'][1]
-    HP_needs = 5 - player_HP
-    sud.roll_die(0, )
-    player['HP'][1] = player_HP + HP_needs
-    return player['HP'][1]
+    HP_needs = 10 - player_HP
+    """if-else added to testify the need of healing for the player"""
+    if player_HP < 8:
+        player['HP'][1] = player_HP + HP_needs
 
 
 # consider randomizing text that is printed between user inputs
