@@ -1,54 +1,44 @@
 def game():
     board()
     character()
-    found_exit = exit()
+    found_exit = False
     while not found_exit:
-        user_choice()
         valid_move(board, character, user_choice)
         if valid_move:
             user_choice()
             check_if_exit_reached()
         else:
             move_length = int(input("Your move isn't valid, please re-enter one: "))
-            game()
+            user_choice()
 
 def board():
     length = 5
-    board_size = length ** 2
-    return board_size
+    min_length = 0
+    width= 5
+    min_width = 0
+    print("The board is %d * %d." % (length, length))
+    print("The minimum coordinate is (%d,%d)." % (min_length, min_width))
+    print("The maximum coordinate is (%d,%d)." % (length, width))
 
 def character():
-    characterX = 0
-    characterY = 0
-    character_position = characterX * characterY
-    return character_position
+    user_choice()
+    if 0 <= move_length <= 5:
+        if 0 <= move_width <= 5:
+            location = "Your are (%d,%d) from previous location." % (move_length, move_width)
+            return str(location)
 
 def user_choice():
-    move_length = int(input("Please enter how far you want to go: "))
-    character_location = character()
-    character_location += move_length
-    return character_location
+    move_length = int(input("Please enter how many steps you want to move horizontally: "))
+    move_width = int(input("Please enter how many steps you want to move vertically: "))
+    moving_log = {}
+    steps = range(0, 25)
+    for i in steps:
+        moving_log.update({ i: "(%d,%d)" % (move_length, move_width) })
+        steps.pop(i)
+        return moving_log[i]
 
-def valid_move(board_setup, character_input, user_choice_input):
-    board_setup = board()
-    character_input = character()
-    user_choice_input = user_choice()
-
-    total_movement = character_input + user_choice_input
-
-    if total_movement <= board_setup:
-        user_choice()
-
-total_movement_check = character() + user_choice()
-
-def check_if_exit_reached():
-    if total_movement_check >= 25:
-        print("Winner")
-    else:
-        print("Still more to go")
-
-def main():
-    game()
+def valid_move(board_input, character_input, user_choice_input):
+    
 
 if __name__ == '__main__':
-    main()
+    game()
