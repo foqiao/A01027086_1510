@@ -104,6 +104,8 @@ def healing(player: dict):
     """if-else added to testify the need of healing for the player"""
     if player_HP < 8:
         player['HP'][1] = player_HP + HP_needs
+    else:
+        pass
 
 
 # consider randomizing text that is printed between user inputs
