@@ -4,20 +4,10 @@ def format_name(first_name, last_name):
     full_name = first_name + last_name
     return full_name
 
-# enter the values needed to process within the function above
-first_name1 = "Ted"
-last_name1 = "Yuan"
-format_name1 = format_name(first_name1, last_name1)
-print(format_name1)
-
 # define a function with one arguments
 def tripler(string):
     # specify what the parameter gonna do
     return str(string) * 3
-
-# enter the values for the function above
-string = "How are you!"
-print(tripler(string))
 
 # define a function with two arguments
 def this_year():
@@ -28,4 +18,19 @@ def this_year():
     formula = a + b
     return formula
 
-this_year()
+def main():
+    # enter the values needed to process within the function above
+    first_name1 = "Ted"
+    last_name1 = "Yuan"
+    format_name1 = format_name(first_name1, last_name1)
+    print(format_name1)
+
+    # enter the values for the function above
+    string = "How are you!"
+    print(tripler(string))
+
+    formula1 = this_year()
+    print(formula1)
+
+if __name__ == '__main__':
+    main()

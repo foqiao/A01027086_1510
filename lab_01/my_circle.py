@@ -2,15 +2,12 @@
 pi = 3.14159
 radius = 0
 
-def prompt(param):
-    pass
-
 # variable radius is named, it holds an input from user
 # the new_radius is the product of 2 times radius's input
 radius = int(input("Please enter a number for the radius:"))
 new_radius = radius * 2
 
-prompt("Please enter a value for the radius: " + str(new_radius))
+print("The new-radius is: " + str(new_radius))
 
 # two variables, circumference and circumference1, named for two different circumferences based two different radius
 circumference1 = 2 * pi * radius
