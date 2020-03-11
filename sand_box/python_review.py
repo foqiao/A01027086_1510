@@ -228,3 +228,13 @@ print(sentence)
 #openfile with below codes
 #f = open('xxx.txt')
 
+first_name = 'Corey'
+last_name = 'Schafer'
+
+sentence = 'My name is {} {}.'.format(first_name, last_name)
+print(sentence)
+
+sentence = f'my name is {first_name} {last_name}'
+print(sentence)
+
+person = {'name': 'Jenn', 'age': 23}
