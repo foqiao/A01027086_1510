@@ -223,3 +223,8 @@ print(my_date)
 
 sentence = '{0:%B %d, %Y} fell on a {0:%A} and was the {0:%j} day of the year'.format(my_date)
 print(sentence)
+
+#file objects
+#openfile with below codes
+#f = open('xxx.txt')
+
