@@ -17,6 +17,7 @@ def character():
     x_location = 0
     y_location = 0
     choice()
+    print(f"{x_location},{y_location}")
 
 def current_character():
     """
@@ -25,6 +26,7 @@ def current_character():
     :return: the position of the character in second round
     """
     global x_location, y_location
+    choice()
     print(f"{x_location},{y_location}")
 
 def choice():
@@ -44,7 +46,6 @@ def choice():
         x_location += 1
     elif location == "left":
         x_location -= 1
-    print("(%d,%d)" % (x_location, y_location))
 
 def validate_move():
     """
@@ -59,6 +60,13 @@ def validate_move():
         elif location == "left":
             print("invalid")
             choice()
+    elif x_location == 4 or y_location == 4:
+        if location == "down":
+            print("invalid")
+            choice()
+        if location == "right":
+            print("invalid")
+            choice()
     else:
         pass
 
@@ -69,10 +77,10 @@ def last_step():
     """
     global x_location, y_location
     if x_location == 4 and y_location == 4:
-        pass
+        print("You Win")
     else:
         print("You are still a long way to go")
-        choice()
+        game1()
 
 def game():
     board()
@@ -81,11 +89,6 @@ def game():
     if validate_move:
         current_character()
         last_step()
-        if last_step:
-            print("You Win")
-        else:
-            game()
-    else:
         game1()
 
 def game1():
@@ -94,8 +97,6 @@ def game1():
     if validate_move:
         current_character()
         last_step()
-        game1()
-    else:
         game1()
 
 if __name__ == '__main__':
