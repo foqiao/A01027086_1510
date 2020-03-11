@@ -1,66 +1,103 @@
-from numpy import NaN
+def board():
+    """
+    length: specify the length of the 5 * 5 board
+    :return: the board's size is returned to the user
+    """
+    length = range(0, 5)
+    board_size = "(%d,%d)" % (max(length), max(length))
+    print(board_size)
 
-def make_board():
-    global length, width
-    length = 5
-    width = 5
-    print("The board is (%d,%d)" % (length, width))
+def character():
+    """
+    x_location: the initial location of the character compares to x-axis
+    y_location: the initial location of the character compares to y-axis
+    :return: the position of the character in first round
+    """
+    global x_location, y_location
+    x_location = 0
+    y_location = 0
+    choice()
 
-def make_character(next_step):
-    global current_y, current_x
-    current_x = {}
-    current_y = {}
-    i = len(current_x)
-    j = len(current_y)
-    if next_step == "up":
-        current_y[j].append(j + 1)
-        print("(%d,%d)" % (current_x[i], current_y[j]))
-    elif next_step == "left":
-        current_x[i].append(i + 1)
-        print("(%d,%d)" % (current_x[i], current_y[j]))
-    elif next_step == "right":
-        current_x[i].append(i + 1)
-        print("(%d,%d)" % (current_x[i], current_y[j]))
-    elif next_step == "down":
-        current_y[i].append(j + 1)
-        print("(%d,%d)" % (current_x[i], current_y[j]))
+def current_character():
+    """
+    x_location: the location the character current located after first round to x-axis
+    y_location: the location the character current located after first round to y-axis
+    :return: the position of the character in second round
+    """
+    global x_location, y_location
+    print(f"{x_location},{y_location}")
 
-def validate_move(next_step):
-    global current_y, current_x
-    i = len(current_x)
-    j = len(current_y)
-    if current_x[i] < 0 or current_y[j] < 0:
-        print("invalid")
-        make_character(next_step)
-    elif next_step == NaN:
-        print("invalid")
-        make_character(next_step)
-    elif len(current_y) == 0 or len(current_x) == 0:
-        if next_step == "up":
+def choice():
+    """
+    location: choose the next step for character to move on
+    :return: the updated position of the character after choosing the next step
+    """
+    global x_location, y_location, location
+    location = str(input("Which direction do you want to go(up, down, right or left): "))
+    validate_move()
+    if location == "up":
+        y_location -= 1
+        print(x_location)
+    elif location == "down":
+        y_location += 1
+    elif location == "right":
+        x_location += 1
+    elif location == "left":
+        x_location -= 1
+    print("(%d,%d)" % (x_location, y_location))
+
+def validate_move():
+    """
+    to see whether the move from choice is valid
+    :return: the approval of the move from the character
+    """
+    global x_location, y_location, location
+    if x_location == 0 or y_location == 0:
+        if location == "up":
             print("invalid")
-            make_character(next_step)
-        elif next_step == "left":
+            choice()
+        elif location == "left":
             print("invalid")
-            make_character(next_step)
-        else:
-            make_character(next_step)
+            choice()
+    else:
+        pass
 
-def check_if_exit_reached():
-    global current_x, current_y
-    if len(current_x) * len(current_y) >= 16:
-        print("You Win")
+def last_step():
+    """
+    whether the character reaches the exit
+    :return: Win or more to go
+    """
+    global x_location, y_location
+    if x_location == 4 and y_location == 4:
+        pass
+    else:
+        print("You are still a long way to go")
+        choice()
 
 def game():
-    make_board()
-    found_exit = False
-    while not found_exit:
-        next_step1 = str(input("Do you want to go up, down, right or left? Please enter: "))
-        make_character(next_step1)
-        validate_move(next_step1)
-        if validate_move:
-            check_if_exit_reached()
+    board()
+    character()
+    validate_move()
+    if validate_move:
+        current_character()
+        last_step()
+        if last_step:
+            print("You Win")
         else:
-            make_character(next_step1)
+            game()
+    else:
+        game1()
+
+def game1():
+    choice()
+    validate_move()
+    if validate_move:
+        current_character()
+        last_step()
+        game1()
+    else:
+        game1()
 
 if __name__ == '__main__':
     game()
+    game1()

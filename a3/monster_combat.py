@@ -23,10 +23,12 @@ def combat_initiative(opponent_one: dict, opponent_two: dict) -> list:
         print("%s attacks first." % (opponent_one['Name']))
         first_attacker = opponent_one
         second_attacker = opponent_two
+        damage_roll(second_attacker)
     else:
         print("%s attacks first." % (opponent_two['Name']))
         first_attacker = opponent_two
         second_attacker = opponent_one
+        damage_roll(first_attacker)
     return [first_attacker, second_attacker]
 
 
@@ -102,11 +104,11 @@ def healing(player: dict):
     player_HP = player['HP'][1]
     HP_needs = 10 - player_HP
     """if-else added to testify the need of healing for the player"""
-    if player_HP < 8:
+    if player_HP < 10:
         player['HP'][1] = player_HP + HP_needs
     else:
+        print('The player has no need to heal.')
         pass
-
 
 # consider randomizing text that is printed between user inputs
 def monster_encounter(player: dict, monster: dict):
@@ -132,7 +134,11 @@ def main():
     bob = {'Name': 'Bob', 'HP': [10, 10]}
     monster1 = monster_randomizer()
     monster_encounter(bob, monster1)
-    print(bob, monster1)
+    if monster_encounter:
+        combat_initiative(bob, monster1)
+        run_away(bob, monster1)
+        healing(bob)
+        print(bob, monster1)
     doctest.testmod()
 
 
