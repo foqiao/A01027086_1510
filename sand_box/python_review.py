@@ -180,4 +180,46 @@ import builtins
 
 print(dir(builtins))
 
+#Advanced Operations for Dicts, Lists, Numbers, and Dates
+person = {'name': 'Jenn', 'age': 23}
 
+tag = 'h1'
+text = 'This is a headline'
+
+sentence = 'My name is {} and I am {} years old.'.format(person['name'], person['age'])
+print(sentence)
+
+sentence = '<{0}><{1}></{0}>'.format(tag, text)
+print(sentence)
+
+
+
+#class person(name, age):
+#    def __init__(self, name, age):
+#        self.name = name
+#        self.age = age
+
+#p1 = Person('Jack', '33')
+
+#sentence = 'My name is {name} amd I am {age} years old.'.format(name='Jenn', age='23')
+#print(sentence)
+
+Person = {'name': 'Jenn', 'age': 23}
+print(Person)
+
+Pi = 3.14159265
+
+sentence = 'Pi is equal to {:.3f}'.format(Pi)
+
+print(sentence)
+
+sentence = '1 MB is equal to {:,} bytes'.format(1000 ** 2)
+print(sentence)
+
+import datetime
+my_date = datetime.datetime(2016, 9, 24, 12, 30, 45)
+
+print(my_date)
+
+sentence = '{0:%B %d, %Y} fell on a {0:%A} and was the {0:%j} day of the year'.format(my_date)
+print(sentence)
