@@ -12,8 +12,9 @@ roll_die(num_of_rolls1, num_of_sides1)
 
 def create_name(length):
     alpha = string.ascii_lowercase
-    letter_picker = random.choice(alpha)
-    print(letter_picker)
+    letter_picker = random.choices(alpha, k=length)
+    name = ''.join(letter_picker)
+    print(name.title())
 
 length1 = int(input("Please enter the length of the name you want to have: "))
 create_name(length1)
