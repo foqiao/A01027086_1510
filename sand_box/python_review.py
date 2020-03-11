@@ -238,3 +238,22 @@ sentence = f'my name is {first_name} {last_name}'
 print(sentence)
 
 person = {'name': 'Jenn', 'age': 23}
+
+for n in range(1, 11):
+    sentence = f'The value is {n:02}'
+    print(sentence)
+
+pi = 3.14159265
+
+sentence = f'Pi is equal to {pi:.4f}'
+print(sentence)
+
+from datetime import datetime
+
+birthday = datetime(1990, 1, 1)
+
+sentence = f"Jenn has a birthday on {birthday:%B %d, %Y}"
+print(sentence)
+
+sentence = f"Jenn has a birthday on {birthday}"
+print(sentence)
