@@ -1,8 +1,6 @@
 """Play a simple text-based Single User Dungeon."""
 
 import random
-import character
-import monster_combat
 
 
 # taken from Kyle's a2 package
@@ -26,7 +24,6 @@ def roll_die(number_of_rolls, number_of_sides):
 
 def main():
     """Drive the program."""
-    pass
 
 
 if __name__ == '__main__':

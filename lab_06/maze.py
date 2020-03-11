@@ -101,4 +101,3 @@ def game1():
 
 if __name__ == '__main__':
     game()
-    game1()

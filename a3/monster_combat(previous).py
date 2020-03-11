@@ -1,14 +1,14 @@
 """Functions associated with monster encounters. Run to test."""
 
-import sud
+from a3 import sud
 import random
 import doctest
 
 
 def monster_randomizer() -> dict:
     monster_names = ['Crazed Brigand', 'Frostbite Spider', 'Beholder', 'Mangled Death Knight', 'Treeant', 'Unicorn',
-                     'Dire Wolf', 'Shia Labeouf', 'Violent Bounty Hunter', 'Green Snail']
-    i = random.randint(0, len(monster_names) - 1)
+                    'Dire Wolf', 'Shia Labeouf', 'Violent Bounty Hunter', 'Green Snail']
+    i = random.randint(0, len(monster_names))
     return {'Name': monster_names[i], 'HP': [5, 5]}
 
 
@@ -23,10 +23,12 @@ def combat_initiative(opponent_one: dict, opponent_two: dict) -> list:
         print("%s attacks first." % (opponent_one['Name']))
         first_attacker = opponent_one
         second_attacker = opponent_two
+        damage_roll(second_attacker)
     else:
         print("%s attacks first." % (opponent_two['Name']))
         first_attacker = opponent_two
         second_attacker = opponent_one
+        damage_roll(first_attacker)
     return [first_attacker, second_attacker]
 
 
@@ -37,7 +39,20 @@ def damage_roll(victim: dict) -> int:
     return damage
 
 
+#broken version of attack function
+"""
 # copied/modified
+def attack(attacker: dict, victim: dict):
+    attack_hits = (sud.roll_die(1, 4) > 1)
+    if attack_hits:
+        attack_damage1 = damage_roll(attacker, victim)
+        print("%s strikes %s for %d damage!" % (attacker['Name'], victim['Name'], attack_damage1))
+        print("%s has %d HP remaining." % (victim['Name'], victim['HP'][1]))
+    else:
+        print("%s\'s attack misses!" % (attacker['Name']))     
+"""
+
+# modified version of attack
 def attack(attacker: dict, victim: dict):
     attack_hits = (sud.roll_die(1, 4) > 1)
     if attack_hits:
@@ -83,6 +98,17 @@ def run_away(player: dict, monster: dict):
     else:
         print("%s successfully flees from battle unharmed!" % (player['Name']))
 
+#healing function I wrote.
+def healing(player: dict):
+    """elements and blocks needed for healing process"""
+    player_HP = player['HP'][1]
+    HP_needs = 10 - player_HP
+    """if-else added to testify the need of healing for the player"""
+    if player_HP < 10:
+        player['HP'][1] = player_HP + HP_needs
+    else:
+        print('The player has no need to heal.')
+        pass
 
 # consider randomizing text that is printed between user inputs
 def monster_encounter(player: dict, monster: dict):
@@ -103,25 +129,16 @@ def monster_encounter(player: dict, monster: dict):
             print('%s has fallen!' % player['Name'])
 
 
-def healing(player: dict):
-    """elements and blocks needed for healing process"""
-    player_hp = player['HP'][1]
-    hp_needs = 10 - player_hp
-    """if-else added to testify the need of healing for the player"""
-    if player_hp < 10:
-        player['HP'][1] = player_hp + hp_needs
-        print('%s healed for %d HP. (now at %d/%d)' % (player['Name'], hp_needs, player['HP'][1], player['HP'][0]))
-    else:
-        print('The player has no need to heal.')
-
-
 def main():
     """Drive the program."""
     bob = {'Name': 'Bob', 'HP': [10, 10]}
     monster1 = monster_randomizer()
     monster_encounter(bob, monster1)
-    print(bob, monster1)
-    healing(bob)
+    if monster_encounter:
+        combat_initiative(bob, monster1)
+        run_away(bob, monster1)
+        healing(bob)
+        print(bob, monster1)
     doctest.testmod()
 
 
