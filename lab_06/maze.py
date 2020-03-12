@@ -1,103 +1,86 @@
-def board():
+def make_board(length: int, width: int) -> dict:
     """
     length: specify the length of the 5 * 5 board
     :return: the board's size is returned to the user
     """
-    length = range(0, 5)
-    board_size = "(%d,%d)" % (max(length), max(length))
-    print(board_size)
+    board_size = {'length': length, 'width': width}
+    return board_size
 
-def character():
+def make_character(x_location: int, y_location: int) -> dict:
     """
     x_location: the initial location of the character compares to x-axis
     y_location: the initial location of the character compares to y-axis
     :return: the position of the character in first round
     """
-    global x_location, y_location
-    x_location = 0
-    y_location = 0
-    choice()
-    print(f"{x_location},{y_location}")
+    character_dict = {'x': x_location, 'y': y_location}
+    print(character_dict)
+    return character_dict
 
-def current_character():
-    """
-    x_location: the location the character current located after first round to x-axis
-    y_location: the location the character current located after first round to y-axis
-    :return: the position of the character in second round
-    """
-    global x_location, y_location
-    choice()
-    print(f"{x_location},{y_location}")
-
-def choice():
+def get_user_choice():
     """
     location: choose the next step for character to move on
     :return: the updated position of the character after choosing the next step
     """
-    global x_location, y_location, location
-    location = str(input("Which direction do you want to go(up, down, right or left): "))
-    validate_move()
-    if location == "up":
-        y_location -= 1
-        print(x_location)
-    elif location == "down":
-        y_location += 1
-    elif location == "right":
-        x_location += 1
-    elif location == "left":
-        x_location -= 1
+    direction = str(input("Which direction do you want to go(up, down, right or left): "))
+    return direction
 
-def validate_move():
+def validate_move(board, character, direction):
     """
     to see whether the move from choice is valid
     :return: the approval of the move from the character
     """
-    global x_location, y_location, location
-    if x_location == 0 or y_location == 0:
-        if location == "up":
-            print("invalid")
-            choice()
-        elif location == "left":
-            print("invalid")
-            choice()
-    elif x_location == 4 or y_location == 4:
-        if location == "down":
-            print("invalid")
-            choice()
-        if location == "right":
-            print("invalid")
-            choice()
-    else:
-        pass
+    direction_list = ["left", "right", "up", "down"]
+    if direction not in direction_list:
+        return False
+    if character.get('x') == 0:
+        if direction == "left":
+            return False
+    if character.get('y') == 0:
+        if direction == "up":
+            return False
+    if character.get('x') == board.get('length') - 1:
+        if direction == "right":
+            return False
+    if character.get('y') == board.get('width') - 1:
+        if direction == "down":
+            return False
 
-def last_step():
+    return True
+
+def last_step(board, character):
     """
     whether the character reaches the exit
     :return: Win or more to go
     """
-    global x_location, y_location
-    if x_location == 4 and y_location == 4:
+    if character['x'] == board.get('length') - 1 and character['y'] == board.get('width') - 1:
         print("You Win")
     else:
         print("You are still a long way to go")
-        game1()
+
+def move_character(character: dict, direction: str):
+    if direction == "up":
+        character['y'] -= 1
+    if direction == "down":
+        character['y'] += 1
+    if direction == "right":
+        character['x'] += 1
+    if direction == "left":
+        character['x'] -= 1
+
+    print(character)
 
 def game():
-    board()
-    character()
-    validate_move()
-    if validate_move:
-        current_character()
-        last_step()
-        game1()
-
-def game1():
-    choice()
-    validate_move()
-    if validate_move:
-        current_character()
-        last_step()
-        game1()
+    board = make_board(5, 5)
+    character = make_character(0, 0)
+    found_exit = False
+    while not found_exit:
+        direction = get_user_choice()
+        valid_move = validate_move(board, character, direction)
+        if valid_move:
+            move_character(character, direction)
+            last_step(board, character)
+        else:
+            print("invalid")
 
 if __name__ == '__main__':
     game()
