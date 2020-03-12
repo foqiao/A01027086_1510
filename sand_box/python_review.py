@@ -163,7 +163,6 @@ def find_index(to_search, target):
             return j
     return -1
 
-
 # variable scope
 # local, enclosing, global, built-in or abbreviation LEGB
 x = 'global x'
