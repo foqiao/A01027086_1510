@@ -1,19 +1,21 @@
 def most_vowels(tuple):
-    vowels_in_string = {}
-    tuple_range = range(0, len(tuple) + 1)
-    mul_vowels = range(1, len(tuple) + 1)
-    for i in tuple_range:
-        for j in mul_vowels:
-            if tuple[i] == 'a' * j:
-                vowels_in_string.update({i: tuple[i]})
-            elif tuple[i] == 'e' * j:
-                vowels_in_string.update({i: tuple[i]})
-            elif tuple[i] == 'i' * j:
-                vowels_in_string.update({i: tuple[i]})
-            elif tuple[i] == 'o' * j:
-                vowels_in_string.update({i: tuple[i]})
-            elif tuple[i] == 'u' * j:
-                vowels_in_string.update({i: tuple[i]})
+    vowel_in_tuple = []
+    vowel_in_string = []
+    tuple_of_string = range(0, len(tuple))
+    for i in tuple_of_string:
+        if tuple[i] == ',':
+           vowel_in_tuple.append(" ")
+        if tuple[i] == 'a':
+            vowel_in_tuple.append(tuple[i])
+        if tuple[i] == 'e':
+           vowel_in_tuple.append(tuple[i])
+        if tuple[i] == 'i':
+            vowel_in_tuple.append(tuple[i])
+        if tuple[i] == 'o':
+            vowel_in_tuple.append(tuple[i])
+        if tuple[i] == 'u':
+            vowel_in_tuple.append(tuple[i])
+    print(vowel_in_tuple)
 
-tuple_input = tuple(input("Please enter a combination of strings: "))
+tuple_input = tuple(input("Please enter a combination of strings(must separated by comma): "))
 most_vowels(tuple_input)
