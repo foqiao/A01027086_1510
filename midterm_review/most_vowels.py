@@ -1,6 +1,7 @@
 def most_vowels(tuple):
     vowel_in_tuple = []
-    vowel_in_string = []
+    vowel_rank = set()
+    vowel_amount = 0
     tuple_of_string = range(0, len(tuple))
     for i in tuple_of_string:
         if tuple[i] == ',':
@@ -15,7 +16,11 @@ def most_vowels(tuple):
             vowel_in_tuple.append(tuple[i])
         if tuple[i] == 'u':
             vowel_in_tuple.append(tuple[i])
-    print(vowel_in_tuple)
+    for j in range(0, len(vowel_in_tuple)):
+        if vowel_in_tuple[j] != " ":
+            vowel_amount += 1
+        if vowel_in_tuple[j] == " ":
+            vowel_rank.add(vowel_amount)
 
 tuple_input = tuple(input("Please enter a combination of strings(must separated by comma): "))
 most_vowels(tuple_input)
