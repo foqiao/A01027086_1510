@@ -15,7 +15,7 @@ def heron(num: int) -> float:
             break
 
 try:
-    heron(-1)
+    heron(1 / 0)
 except ZeroDivisionError:
     print("No, I can't do it!")
 
