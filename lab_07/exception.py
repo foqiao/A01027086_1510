@@ -26,14 +26,15 @@ num_input1 = int(input("Please enter a number you want to find the sqrt of: "))
 heron(num_input1)
 
 def findAnEvenNumber(input_list: list):
-    for i in input_list:
-        if i % 2 == 0:
-            print(i)
-
-input_list2 = list(input("Please enter a random list of number: "))
-findAnEvenNumber(input_list2)
+    length = len(input_list)
+    for i in range(0, length):
+        if input_list[i] % 2 == 0:
+            print(input_list[i])
 
 try:
     input_list1 = [3]
 except ValueError:
     print("No, It's an odd number!")
+
+input_list2 = list(input("Please enter a random list of number: "))
+findAnEvenNumber(input_list2)
