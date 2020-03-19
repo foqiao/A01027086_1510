@@ -27,9 +27,10 @@ def findAnEvenNumber(num2: list):
     :raise ValueError: the number that isn't even
     :return: the number has qualified by the function
     """
-    for i in range(0, len(num2)):
-        if num2[i] % 2 == 0:
-            print(num2[i])
+    for i in num2:
+        if i % 2 == 0:
+            return i
+    raise ValueError
 
 num1_input = list(input("Please enter a list of number: "))
 findAnEvenNumber(num1_input)
