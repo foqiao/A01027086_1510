@@ -4,6 +4,7 @@ def heron(num: int) -> float:
     :precondition: a number without perfect root
     :postcondition: a number with an approximate root
     :param num: any number inputs by user
+    :raise ZeroDivisionError: 1 / 0
     :return: square root(in float) of the input
     """
     num_range = range(-num, num)
@@ -16,13 +17,6 @@ def heron(num: int) -> float:
 
 num_input = int(input("Please enter a number you want to find the sqrt of: "))
 heron(num_input)
-
-try:
-    num1 = 1 / 0
-    heron(num1)
-except ZeroDivisionError:
-    print("No, I can't do it!")
-    print(-1)
 
 def findAnEvenNumber(num2: list):
     """
@@ -39,10 +33,3 @@ def findAnEvenNumber(num2: list):
 
 num1_input = list(input("Please enter a list of number: "))
 findAnEvenNumber(num1_input)
-
-try:
-    list_num = [1]
-    for i1 in list_num:
-        findAnEvenNumber(list_num[i1])
-except ValueError:
-    print("Sorry, it isn't an even number!")
