@@ -49,3 +49,12 @@ def informative_convert(value):
         print("Conversion error: { }".format(str(e)), file=sys.stderr)
         return -1
 
+def main():
+    value1 = 56
+    convert(value1)
+    another_convert(value1)
+    yet_another_convert(value1)
+    informative_convert(value1)
+
+if __name__ == '__main__':
+    main()
