@@ -25,9 +25,6 @@ except ZeroDivisionError:
     print("No, I can't do that!")
     print(-1)
 
-num_input1 = int(input("Please enter a number you want to find the sqrt of: "))
-heron(num_input1)
-
 def findAnEvenNumber(input_list: list):
     """
     return even number of the input list
@@ -40,11 +37,18 @@ def findAnEvenNumber(input_list: list):
     for i in input_list:
         if int(i) % 2 == 0:
             print(i)
+            break
 
 try:
     input_list1 = [3]
 except ValueError:
     print("No, It's an odd number!")
 
-input_list2 = list(input("Please enter a random list of number: "))
-findAnEvenNumber(input_list2)
+def main():
+    num_input1 = int(input("Please enter a number you want to find the sqrt of: "))
+    heron(num_input1)
+    input_list2 = list(input("Please enter a random list of number: "))
+    findAnEvenNumber(input_list2)
+
+if __name__ == '__main__':
+    main()
