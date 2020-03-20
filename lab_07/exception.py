@@ -29,10 +29,10 @@ def findAnEvenNumber(input_list: list):
     """
     return even number of the input list
     :precondition: a list of mixed integer number, both odd and even
-    :postcondition: the even number will coming out only while odd are left behind
+    :postcondition: the first even number of the list will coming out only
     :param input_list: a list of number randomly placed
     :raise ValueError: if there are no even numbers in the list
-    :return: return even number of the list
+    :return: return the first even number of the list
     """
     for i in input_list:
         if int(i) % 2 == 0:
