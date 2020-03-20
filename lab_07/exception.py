@@ -29,6 +29,14 @@ num_input1 = int(input("Please enter a number you want to find the sqrt of: "))
 heron(num_input1)
 
 def findAnEvenNumber(input_list: list):
+    """
+    return even number of the input list
+    :precondition: a list of mixed integer number, both odd and even
+    :postcondition: the even number will coming out only while odd are left behind
+    :param input_list: a list of number randomly placed
+    :raise ValueError: if there are no even numbers in the list
+    :return: return even number of the list
+    """
     for i in input_list:
         if int(i) % 2 == 0:
             print(i)
