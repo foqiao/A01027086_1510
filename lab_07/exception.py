@@ -1,3 +1,6 @@
+from numpy import NaN
+
+
 def heron(num: int) -> float:
     """
     return the square root value of the input
@@ -26,10 +29,9 @@ num_input1 = int(input("Please enter a number you want to find the sqrt of: "))
 heron(num_input1)
 
 def findAnEvenNumber(input_list: list):
-    length = len(input_list)
-    for i in range(0, length):
-        if input_list[i] % 2 == 0:
-            print(input_list[i])
+    for i in input_list:
+        if int(i) % 2 == 0:
+            print(i)
 
 try:
     input_list1 = [3]
