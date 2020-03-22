@@ -6,6 +6,9 @@ def heron(num: int) -> float:
     :param num: any number inputs by user
     :raise ZeroDivisionError: 1 / 0
     :return: square root(in float) of the input
+
+    >>>42
+    6.4843283582089555
     """
     num_range = range(1, num)
     for i in num_range:
@@ -29,6 +32,9 @@ def findAnEvenNumber(input_list: list):
     :param input_list: a list of number randomly placed
     :raise ValueError: if there are no even numbers in the list
     :return: return the first even number of the list
+
+    >>> 1,2,3
+    3
     """
     for i in input_list:
         if i == "," or i == " ":
