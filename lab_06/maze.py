@@ -2,7 +2,7 @@ def make_board(length: int, width: int) -> dict:
     """
     length: specify the length of the 5 * 5 board
     :return: the board's size is returned to the user
-    >>>make_board(5,5)
+    >>> make_board(5,5)
     {'length': 5, 'width': 5}
     """
     board_size = {'length': length, 'width': width}
@@ -13,7 +13,7 @@ def make_character(x_location: int, y_location: int) -> dict:
     x_location: the initial location of the character compares to x-axis
     y_location: the initial location of the character compares to y-axis
     :return: the position of the character in first round
-    >>>make_character(0,0)
+    >>> make_character(0,0)
     {'x': 0, 'y': 0}
     """
     character_dict = {'x': x_location, 'y': y_location}
@@ -24,7 +24,7 @@ def get_user_choice():
     """
     location: choose the next step for character to move on
     :return: the updated position of the character after choosing the next step
-    >>>down
+    >>> down
     (0,1)
     """
     direction = str(input("Which direction do you want to go(up, down, right or left): "))
@@ -34,10 +34,10 @@ def validate_move(board, character, direction):
     """
     to see whether the move from choice is valid
     :return: the approval of the move from the character
-    >>>board = make_board(5,5)
-    >>>character = make_character(0,0)
-    >>>direction = down
-    >>>validate_move(board, character, direction)
+    >>> board = make_board(5,5)
+    >>> character = make_character(0,0)
+    >>> direction = down
+    >>> validate_move(board, character, direction)
     True
     """
     direction_list = ["left", "right", "up", "down"]
@@ -62,8 +62,8 @@ def last_step(board, character):
     """
     whether the character reaches the exit
     :return: Win or more to go
-    >>>board = make_board(5,5)
-    >>>character = make_character(4,4)
+    >>> board = make_board(5,5)
+    >>> character = make_character(4,4)
     "You Win"
     """
     if character['x'] == board.get('length') - 1 and character['y'] == board.get('width') - 1:
@@ -76,9 +76,9 @@ def move_character(character: dict, direction: str):
     :param character: make_character function
     :param direction: get_user_choice function
     :return: the updated position of the user
-    >>>character = make_character(0,0)
-    >>>direction = down
-    >>>move_character(character, direction)
+    >>> character = make_character(0,0)
+    >>> direction = down
+    >>> move_character(character, direction)
     (0,1)
     """
     if direction == "up":

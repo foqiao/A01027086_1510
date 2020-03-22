@@ -5,8 +5,8 @@ class Country:
         :param name: country's name
         :param population: country's population
         :param size: country's size
-        >>>Canada = Country("Canada", 37950000, 998500)
-        >>>Canada
+        >>> Canada = Country("Canada", 37950000, 998500)
+        >>> Canada
         ("Canada", 37950000, 998500)
         """
         self.name = name
@@ -18,7 +18,7 @@ class Country:
         compare the initialized country and country in the parameter about their population masses
         :param country: compared country
         :return: which country is larger in population
-        >>>Canada.is_larger(Denmark)
+        >>> Canada.is_larger(Denmark)
         False
         """
         if self.population > country.population:

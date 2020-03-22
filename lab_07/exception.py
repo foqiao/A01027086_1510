@@ -7,7 +7,7 @@ def heron(num: int) -> float:
     :raise ZeroDivisionError: 1 / 0
     :return: square root(in float) of the input
 
-    >>>42
+    >>> 42
     6.4843283582089555
     """
     num_range = range(1, num)
