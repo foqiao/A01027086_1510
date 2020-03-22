@@ -5,6 +5,10 @@ def sparse_add(vector1: dict, vector2: dict) -> dict:
     :param vector1: dictionary contains a string of items
     :param vector2: dictionary contains another string of items
     :return: the result dictionary which combines two dictionaries
+    >>> vector_input1 = {'length': 10, 1: 5, 0: 6, 3: 9, 4: 8}
+    >>> vector_input2 = {'length': 10, 1: 5, 0: 8, 3: 3, 5: 3}
+    >>> print(sparse_add(vector1, vector2))
+    {'length': 10, 'total': 47}
     """
     sum_of_list = 0
     list_of_sum = {}
@@ -26,6 +30,10 @@ def sparse_dot_product(vector1: dict, vector3: dict) -> int:
     :param vector1: dictionary contains a string of items
     :param vector3: dictionary contains another string of items
     :return: the result dictionary which combines two dictionaries
+    >>> vector_input1 = {'length': 10, 1: 5, 0: 6, 3: 9, 4: 8}
+    >>> vector_input2 = {'length': 10, 1: 5, 0: 8, 3: 3, 5: 3}
+    >>> print(sparse_dot_product(vector1, vector3))
+    {'length': 10, 'total': 0}
     """
     product_of_list = 0
     list_of_product = {}
@@ -41,11 +49,6 @@ def sparse_dot_product(vector1: dict, vector3: dict) -> int:
 
 
 def main():
-    """
-
-    Enter inputs of two parameters by random
-    :return: input being executed above
-    """
     vector_input1 = {'length': 10, 1: 5, 0: 6, 3: 9, 4: 8}
     vector_input2 = {'length': 10, 1: 5, 0: 8, 3: 3, 5: 3}
     print(sparse_add(vector_input1, vector_input2))
