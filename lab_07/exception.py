@@ -1,6 +1,3 @@
-from numpy import NaN
-
-
 def heron(num: int) -> float:
     """
     return the square root value of the input
@@ -18,12 +15,11 @@ def heron(num: int) -> float:
         if round(squared_result) == num:
             print(result)
             break
-
-try:
-    num_input = 0
-except ZeroDivisionError:
-    print("No, I can't do that!")
-    print(-1)
+            try:
+                num = 0
+            except ZeroDivisionError:
+                print("No, I can't do that!")
+                print(-1)
 
 def findAnEvenNumber(input_list: list):
     """
@@ -35,14 +31,15 @@ def findAnEvenNumber(input_list: list):
     :return: return the first even number of the list
     """
     for i in input_list:
-        if int(i) % 2 == 0:
+        if i == "," or i == " ":
+            pass
+        elif int(i) % 2 == 0:
             print(i)
             break
-
-try:
-    input_list1 = [3]
-except ValueError:
-    print("No, It's an odd number!")
+            try:
+                input_list = [3]
+            except ValueError:
+                print("No, It's an odd number!")
 
 def main():
     num_input1 = int(input("Please enter a number you want to find the sqrt of: "))
