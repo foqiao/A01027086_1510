@@ -11,7 +11,17 @@ class name:
         return "%s %s %s" % (cap, cap1, cap2)
 
     def __repr__(self):
-        return name.__init__(self)
+        return self.__init__(self)
 
     def length(self):
-        return len(self)
+        name_length = str(self.first) + str(self.middle) + str(self.last)
+        return len(name_length)
+
+def main():
+    Donald_Trump = name("Donald", "Trump")
+    Donald_Trump.__str__()
+    Donald_Trump.__repr__()
+    Donald_Trump.length()
+
+if __name__ == '__main__':
+    main()
