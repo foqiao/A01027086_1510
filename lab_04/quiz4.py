@@ -1,12 +1,20 @@
-def statistics(stats_test):
-    stats_test = []
-    for stats_test in range(len(stats_test) - 1):
-        stats_test[0] = stats_test.count()
-        stats_test[1] = min(stats_test)
-        stats_test[2] = max(stats_test)
-        stats_test[3] = int(sum(stats_test)) / int(stats_test.count())
-        stats_test[4] = range(min(stats_test), max(stats_test), stats_test.index(0, -1))
-    return stats_test
+def statistics(list_of_integers):
+    statistics_list = []
+    statistics_list.append(len(list_of_integers) )
+    statistics_list.append(min(list_of_integers) )
+    statistics_list.append(max(list_of_integers) )
+    statistics_list.append(int(sum(list_of_integers)) / len(list_of_integers) )
+    statistics_list.append(max(list_of_integers) - min(list_of_integers))
+    return statistics_list
 
-stats_test_input = [1, 23, 56, 2, 5]
-statistics(stats_test_input)
+
+def main():
+    stats_test_input = [1, 23, 56, 2, 5]
+    special_list = statistics(stats_test_input)
+    print(special_list)
+
+
+if __name__ == "__main__":
+    main()
+
+
