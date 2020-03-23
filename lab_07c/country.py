@@ -23,6 +23,8 @@ class Country:
         """
         if self.population > country.population:
             return True
+        elif self.population > country.population:
+            print("equal_size")
         else:
             return False
 
