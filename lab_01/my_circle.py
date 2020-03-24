@@ -1,30 +1,18 @@
-# named two variable initially
-pi = 3.14159
-radius = 0
+PI = 3.14159
 
-# variable radius is named, it holds an input from user
-# the new_radius is the product of 2 times radius's input
-radius = int(input("Please enter a number for the radius:"))
+radius = int(input("Please input a length for radius: "))
 new_radius = radius * 2
 
-print("The new-radius is: " + str(new_radius))
+circumference = radius * PI * 2
+area = radius ** 2 * PI
 
-# two variables, circumference and circumference1, named for two different circumferences based two different radius
-circumference1 = 2 * pi * radius
-circumference = 2 * pi * new_radius
-print("The value for the circumference is: " + str(circumference))
-print("The value for the new circumference is " + str(circumference1))
+new_circumference = new_radius * PI * 2
+new_area = new_radius ** 2 * PI
 
-# two variables, area_of_circle and area_of_circle1, named for two different area_of_circle based on
-# two different radius
-area_of_circle = pi * new_radius * new_radius
-area_of_circle1 = pi * radius * radius
-print("The value for the area of circle: " + str(area_of_circle))
-print("The value for the area of circle: " + str(area_of_circle1))
+comparing_two_circumference = new_circumference / circumference
+comparing_two_area = new_area / area
 
-# comparing two circumferences and areas and find out how big the new circumference and area compare to the old ones
-circumference_compare = circumference1 - circumference
-area_of_circle_compare = area_of_circle1 - area_of_circle
-
-print("The updated circumference: " + str(circumference_compare))
-print("The updated area_of_circle: " + str(area_of_circle_compare))
+print("The lengths of radius and new_radius are " + str(radius) + " and " + str(new_radius))
+print("The circumferences of two radius are " + str(circumference) + " and " + str(new_circumference))
+print("The areas of two radius are " + str(area) + " and " + str(new_area))
+print("The new_circumference is " + str(comparing_two_circumference) + " larger than " + str(circumference))

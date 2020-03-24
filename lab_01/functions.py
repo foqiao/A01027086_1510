@@ -1,36 +1,27 @@
-# define a function with two arguments
 def format_name(first_name, last_name):
-    # specify what the two parameters gonna do
-    full_name = first_name + last_name
-    return full_name
+    cap_first_name = first_name.title()
+    cap_last_name = last_name.title()
+    print("Hello, you are " + cap_first_name.lstrip() + " " + cap_last_name.rstrip())
 
-# define a function with one arguments
-def tripler(string):
-    # specify what the parameter gonna do
-    return str(string) * 3
+def tripleR(string):
+    result = string * 3
 
-# define a function with two arguments
-def this_year():
-    # specify what two parameter gonna do
-    # enter the input value for the function above
-    a = 2000
-    b = 20
-    formula = a + b
-    return formula
+    print(str(result))
 
-def main():
-    # enter the values needed to process within the function above
-    first_name1 = "Ted"
-    last_name1 = "Yuan"
-    format_name1 = format_name(first_name1, last_name1)
-    print(format_name1)
-
-    # enter the values for the function above
-    string = "How are you!"
-    print(tripler(string))
-
-    formula1 = this_year()
-    print(formula1)
+def this_year(pos_int):
+    if pos_int == 2:
+        return_integer = pos_int * 1000 + pos_int * 10
+        print(return_integer)
+    else:
+        return None
 
 if __name__ == '__main__':
-    main()
+    first_name1 = str(input("Please enter your first_name: "))
+    last_name1 = str(input("Please enter your last_name: "))
+    format_name(first_name1, last_name1)
+
+    string1 = str(input("Please enter a string of letter: "))
+    tripleR(string1)
+
+    pos_int1 = int(input("Please specify a positive integer: "))
+    this_year(pos_int1)

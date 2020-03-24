@@ -1,17 +1,16 @@
-# named two variable painter and coverage
-painter = 4
-coverage = 100 * painter
+COVERAGE = 100
 
-# receive inputs from a user
-length = int(input("Please enter value for your room length:"))
-width = int(input("Please enter value for your room width:"))
-height = int(input("Please enter value for your room height:"))
-coat = int(input("Please enter how many layers you want to paint for your room:"))
+length = int(input("Please enter the length of the room: "))
+width = int(input("Please enter the width of the room: "))
+height = int(input("Please enter the height of the room: "))
+layer = int(input("Please enter how many layer you want to coat with the paint: "))
 
-# the inputs inserted into the formulas below
-surface_area = (length * height) * 4 + length * width
-coverage_need = surface_area * coat
-cans_of_paint_required = coverage_need / coverage
+surface_area = length * width + 2 * height * width + 2 * height * length
 
-# print the final result with two strings of words on two sides
-print("You will need " + str(cans_of_paint_required) + " cans.")
+painted_area = surface_area * layer
+
+paint_needs = painted_area / COVERAGE
+
+print("The surface_area needs to paint is " + str(surface_area))
+print("The area needs to paint is " + str(painted_area))
+print("The litres of paint requires to satisfy the demand are " + str(paint_needs))

@@ -1,34 +1,27 @@
 def base_conversion():
-    maximum_value = 10 ** 4 - 1
-    print("The maximum number of base 10 value is " + str(maximum_value))
+    num = int(input("Please enter a base 10 number: "))
+    new_base = int(input("Please enter the new base you want the base 10 number convert to: "))
 
-    base = int(input("Please enter a decimal number from 1 to 10: "))
-    original_value = int(input("Please enter a number less than and equal: "))
-    user_value = base ** 4 - 1
+    if 2 <= new_base <= 9:
+        max_num_of_new_base = new_base ** 4 - 1
+        print("The maximum number of the new base is " + str(max_num_of_new_base))
 
-    print("The maximum value of the base is " + str(user_value))
+        quotient = num // new_base
+        reminder = num % new_base
 
-    if original_value <= maximum_value:
+        quotient1 = quotient // new_base
+        reminder1 = quotient % new_base
 
-        reminder1 = original_value % base
-        quotient1 = original_value / base - reminder1 / base
+        quotient2 = quotient1 // new_base
+        reminder2 = quotient1 % new_base
 
-        reminder2 = quotient1 % base
-        quotient2 = quotient1 / base - reminder2 / base
+        quotient3 = quotient2 // new_base
+        reminder3 = quotient2 % new_base
 
-        reminder3 = quotient2 % base
-        quotient3 = quotient2 / base - reminder3 / base
-
-        reminder4 = quotient3 % base
-
-        final_result = str(int(reminder4)) + str(int(reminder3)) + str(int(reminder2)) + str(int(reminder1))
-
-        print("The final result of your value is " + str(final_result) + ".")
-
+        converted_value = int(str(reminder3) + str(reminder2) + str(reminder1) + str(reminder))
+        print(int(converted_value))
     else:
+        print("Out of range")
 
-        print("Your maximum value of the base " + str(base) + " is " + str(maximum_value) +
-              ". Please enter another value.")
-
-
-base_conversion()
+if __name__ == '__main__':
+    base_conversion()
