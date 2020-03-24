@@ -1,9 +1,10 @@
 def heron(num: int) -> float:
     """
-    return the square root value of the input
-    :precondition: a number without perfect root
-    :postcondition: a number with an approximate root
+    Return the square root value of the input.
+
     :param num: any number inputs by user
+    :precondition: num is an integer
+    :postcondition: calculate approximate root of num
     :raise ZeroDivisionError: 1 / 0
     :return: square root(in float) of the input
 
