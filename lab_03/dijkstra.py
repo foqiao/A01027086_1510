@@ -1,14 +1,17 @@
-def dijkstra():
-    dutch = ["white", "white", "white", "red", "red", "blue", "blue"]
-    color_arrangement = []
-    for color_order in range(0, 7, 1):
-        if dutch[color_order] == "white":
-            color_arrangement.append("white")
-        elif dutch[color_order] == "red":
-            color_arrangement.append("red")
-        elif dutch[color_order] == "blue":
-            color_arrangement.append("blue")
-    return color_arrangement
+import random
 
-if __name__ == '__main__':
-    dijkstra()
+
+def dijkstra():
+    dutch_flag = []
+    dutch = ["red", "white", "blue"]
+    dutch_picker = random.choices(dutch, k=7)
+    for i in dutch_picker:
+        if i == "red":
+            dutch_flag.insert(0, i)
+        if i == "white":
+            dutch_flag.insert(2, i)
+        if i == "blue":
+            dutch_flag.insert(6, i)
+    print(dutch_flag)
+
+dijkstra()
