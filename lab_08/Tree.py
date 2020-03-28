@@ -15,11 +15,3 @@ class Tree:
 
     def __repr__(self):
         print("Tree(%s, %d, %d)" % (self.species, self.age, self.trunk_circumference))
-
-def main():
-    cedar = Tree(None, 12, 12)
-    cedar.__str__()
-    cedar.__repr__()
-
-if __name__ == '__main__':
-    main()
