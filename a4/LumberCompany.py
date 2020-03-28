@@ -1,14 +1,23 @@
 from a4.assignment_four import TreeFarm
 
+def main():
+    name = str(input("Please enter the name of the wood you want to store: "))
+    Type = str(input("Please enter the Type of the wood you want to store: "))
+    circumference = int(input("Please enter the circumference of the lumber: "))
+    age = int(input("Please enter the age of the wood you input: "))
+    lumber = TreeFarm(name, Type, circumference, age)
+    LumberCompany(lumber, Type, circumference)
 
-def LumberCompany():
 
-    lumber_name = str(input("Please enter the name of the wood you want to store: "))
-    lumber_Type = str(input("Please enter the Type of the wood you want to store: "))
-    lumber_circumference = int(input("Please enter the circumference of the lumber: "))
-    lumber_age = int(input("Please enter the age of the wood you input: "))
-    lumber = TreeFarm(lumber_name, lumber_Type, lumber_circumference, lumber_age)
-
+def LumberCompany(lumber, lumber_name, lumber_Type, lumber_circumference):
+    """
+    front end input for lumber specs from the user
+    :param lumber_name: lumber's name in the input
+    :param lumber: lumber stored in TreeFarm class
+    :param lumber_Type: the lumber belongs to what type of plants
+    :param lumber_circumference: the size of the lumber
+    :return: choose from the dictionary by keys. After punch the key in, the matching service will be in place
+    """
     print("lumber_menu = {"
           " 1: Add tree, "
           " 2: Harvest a tree, "
@@ -17,19 +26,20 @@ def LumberCompany():
           "}")
 
     lumber_menu_choice = int(input("Please enter an integer from 1 to 4:"))
-    while 1 <= lumber_menu_choice <= 4:
-        if lumber_menu_choice == 1:
-            TreeFarm.add(lumber)
-            pass
-        if lumber_menu_choice == 2:
-            circumference_input = int(input("Please enter the circumference of the wood you want to harvest: "))
-            TreeFarm.remove_tree(circumference_input)
-        if lumber_menu_choice == 3:
-            circumferences_input = int(input("Please enter the circumference of the woods you want to harvest " +
-                                             "together: "))
-            TreeFarm.remove_trees(circumferences_input)
-        if lumber_menu_choice == 4:
-            break
+    if lumber_menu_choice == 1:
+        lumber.add(lumber_Type)
+        LumberCompany(lumber, lumber_Type, lumber_circumference)
+    if lumber_menu_choice == 2:
+        circumference_input = int(input("Please enter the circumference of the wood you want to harvest: "))
+        lumber.remove_tree(circumference_input, tree_list="")
+        LumberCompany(lumber, lumber_Type, lumber_circumference)
+    if lumber_menu_choice == 3:
+        circumferences_input = int(input("Please enter the circumference of the woods you want to harvest " +
+                                         "together: "))
+        lumber.remove_trees(circumferences_input)
+        LumberCompany(lumber, lumber_Type, lumber_circumference)
+    if lumber_menu_choice == 4:
+        quit()
 
 if __name__ == '__main__':
-    LumberCompany()
+    main()
