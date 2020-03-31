@@ -17,7 +17,7 @@ def heron(num: int) -> float:
         result = (quotient + num / quotient) / 2
         squared_result = result ** 2
         if round(squared_result) == num:
-            print(result)
+            return result
             break
             try:
                 num = 0
@@ -41,7 +41,7 @@ def findAnEvenNumber(input_list: list):
         if i == "," or i == " ":
             pass
         elif int(i) % 2 == 0:
-            print(i)
+            return i
             break
             try:
                 input_list = [3]

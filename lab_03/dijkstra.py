@@ -2,7 +2,7 @@ import random
 
 
 def dijkstra(flag_to_be_sorted):
-    dutch_flag = []
+    #dutch_flag = []
     # dutch = ["red", "white", "blue"]
     # dutch_picker = random.choices(dutch, k=7)
     for i in dutch_picker:

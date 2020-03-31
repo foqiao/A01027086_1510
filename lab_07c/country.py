@@ -1,3 +1,6 @@
+import self
+
+
 class Country:
     def __init__(self, name, population, size):
         """
@@ -9,7 +12,7 @@ class Country:
         """
         self.__name = name
         self.__population = population
-        self.__size = population
+        self.__size = size
 
     def is_larger(self, country):
         """
@@ -21,8 +24,6 @@ class Country:
         """
         if self.__population > country.__population:
             return True
-        elif self.__population > country.__population:
-            print("equal_size")
         else:
             return False
 
@@ -46,15 +47,13 @@ class Country:
         :return: return the string represent the object
         """
         return "%s has a population of %d and is %d square kilometer" % (self.__name, self.__population, self.__size)
-        return "%s" % self
 
 def main():
     Canada = Country("Canada", 37950000, 998500)
-    Country.__init__(Canada)
     Denmark = Country("Denmark", 300000, 40000)
-    Canada_pop = Country.__population
-    Denmark_pop = Denmark.__population
-    Canada_pop.is_larger(Denmark_pop)
+    Canada = Country.__population
+    Denmark = Country.__population
+    Canada.is_larger(Denmark)
     Canada.population_density(Canada)
     Canada.__repr__(Canada)
     Canada.__str__(Canada)
