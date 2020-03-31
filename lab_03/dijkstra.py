@@ -1,10 +1,10 @@
 import random
 
 
-def dijkstra():
+def dijkstra(flag_to_be_sorted):
     dutch_flag = []
-    dutch = ["red", "white", "blue"]
-    dutch_picker = random.choices(dutch, k=7)
+    # dutch = ["red", "white", "blue"]
+    # dutch_picker = random.choices(dutch, k=7)
     for i in dutch_picker:
         if i == "red":
             dutch_flag.insert(0, i)
@@ -14,4 +14,7 @@ def dijkstra():
             dutch_flag.insert(6, i)
     print(dutch_flag)
 
-dijkstra()
+
+def main():
+    flag = ["red", "white", "red", "blue", "blue", "white", "white"]
+    dijkstra(flag)
