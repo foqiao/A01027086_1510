@@ -49,14 +49,22 @@ class Country:
         return "%s has a population of %d and is %d square kilometer" % (self.__name, self.__population, self.__size)
 
 def main():
+    # Canada = Country("Canada", 37950000, 998500)
+    # Denmark = Country("Denmark", 300000, 40000)
+    # Canada = Country.__population
+    # Denmark = Country.__population
+    # Canada.is_larger(Denmark)
+    # Canada.population_density(Canada)
+    # Canada.__repr__(Canada)
+    # Canada.__str__(Canada)
     Canada = Country("Canada", 37950000, 998500)
     Denmark = Country("Denmark", 300000, 40000)
-    Canada = Country.__population
-    Denmark = Country.__population
-    Canada.is_larger(Denmark)
-    Canada.population_density(Canada)
-    Canada.__repr__(Canada)
-    Canada.__str__(Canada)
+    print(Canada.is_larger(Denmark))
+    print(Canada.population_density())
+    print(Canada.__repr__())
+    print(Canada.__str__())
+
+
 
 if __name__ == '__main__':
     main()
