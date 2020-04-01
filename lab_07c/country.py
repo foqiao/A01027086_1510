@@ -1,6 +1,3 @@
-import self
-
-
 class Country:
     def __init__(self, name, population, size):
         """

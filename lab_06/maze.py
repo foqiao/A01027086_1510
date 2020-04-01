@@ -68,6 +68,7 @@ def last_step(board, character):
     """
     if character['x'] == board.get('length') - 1 and character['y'] == board.get('width') - 1:
         print("You Win")
+        quit()
     else:
         print("You are still a long way to go")
 
