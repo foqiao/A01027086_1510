@@ -10,5 +10,7 @@ def main():
     flag = ["red", "white", "red", "blue", "blue", "white", "white"]
     print(dijkstra(flag))
 
+
+
 if __name__ == '__main__':
     main()
