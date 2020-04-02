@@ -1,26 +1,30 @@
 def file_IO(user_input):
-    file = 'project gutenberg.txt'
-    appear_ranking = []
-    appear_times = 1
-    if user_input == "project gutenberg":
-        with open(file, "r") as read_file:
-            for i in file:
-                index_i = file.index(i)
-                for j in file:
-                    index_j = file.index(j)
-                    if i == j and index_i != index_j:
-                        word_index = file.index(i)
-                        appear_ranking[word_index] = appear_times + 1
-                    else:
-                        appear_ranking.append(appear_times)
-            appear_ranking.sort(reverse=True)
-            return appear_ranking[0]
-    else:
-        return None
+    number_of_words_dictionary = {}
+
+    with open(user_input, "r") as read_file:
+        lines = read_file.readlines()
+        for line in lines:
+
+            words = line.split(' ')
+
+            for word in words:
+                if word in number_of_words_dictionary.keys():
+                    number_of_words_dictionary[word] += 1
+                else:
+                    number_of_words_dictionary[word] = 1
+
+    return number_of_words_dictionary
+
+
+def rank_words(word_dictionary):
+    ranked_words = sorted([(value, key) for key, value in word_dictionary.items()], reverse=True)
+    return ranked_words[0:9]
+
 
 def main():
-    user_input = str(input("Please enter the name of the file before read it: "))
-    print(file_IO(user_input))
+    user_input = input("Please enter the name of the file with .txt before read it: ")
+    word_count_dictionary = file_IO(user_input)
+    print(rank_words(word_count_dictionary))
 
 if __name__ == '__main__':
     main()
