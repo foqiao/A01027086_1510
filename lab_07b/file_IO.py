@@ -4,9 +4,7 @@ def file_IO(user_input):
     with open(user_input, "r") as read_file:
         lines = read_file.readlines()
         for line in lines:
-
             words = line.split(' ')
-
             for word in words:
                 if word in number_of_words_dictionary.keys():
                     number_of_words_dictionary[word] += 1
@@ -14,7 +12,6 @@ def file_IO(user_input):
                     number_of_words_dictionary[word] = 1
 
     return number_of_words_dictionary
-
 
 def rank_words(word_dictionary):
     ranked_words = sorted([(value, key) for key, value in word_dictionary.items()], reverse=True)
