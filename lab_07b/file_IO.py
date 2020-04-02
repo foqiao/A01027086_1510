@@ -6,11 +6,9 @@ def file_IO(user_input):
         with open(file, "r") as read_file:
             for i in file:
                 index_i = file.index(i)
-                read_file.read(index_i)
                 for j in file:
                     index_j = file.index(j)
-                    read_file.read(index_j)
-                    if i == j and file.index(i) != file.index(j):
+                    if i == j and index_i != index_j:
                         word_index = file.index(i)
                         appear_ranking[word_index] = appear_times + 1
                     else:
