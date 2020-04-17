@@ -19,3 +19,10 @@ def shop_iteration(shop_dict, item_dict):
         print(f"{key}: {value}")
         if value == 0:
             return "out of stock"
+
+def main():
+    #add two parameter to the function before execute the main function
+    shop_iteration(shop_dict, item_dict)
+
+if __name__ == '__main__':
+    main()
