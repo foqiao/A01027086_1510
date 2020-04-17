@@ -5,4 +5,5 @@ from lab_07.exception import findAnEvenNumber
 
 class Test(TestCase):
     def test_find_an_even_number(self):
-        self.assertEqual(2, findAnEvenNumber([1, 2, 3]))
+        with self.assertRaises(ValueError):
+            findAnEvenNumber([1, 3, 5, 7])

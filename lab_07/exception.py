@@ -17,11 +17,7 @@ def heron(num: int) -> float:
         if round(squared_result) == num:
             return result
             break
-    try:
-        num = 0
-    except ZeroDivisionError:
-        print("Zero cannot be divided")
-        print(-1)
+    raise ZeroDivisionError("Zero cannot be divided")
 
 def findAnEvenNumber(input_list: list):
     """
@@ -38,10 +34,7 @@ def findAnEvenNumber(input_list: list):
         elif int(i) % 2 == 0:
             return i
             break
-    try:
-        input_list = [1, 3, 5, 7]
-    except ValueError:
-        print("There is only odd numbers")
+    raise ValueError("There are only odd numbers")
 
 def main():
     num_input1 = int(input("Please enter a number you want to find the sqrt of: "))

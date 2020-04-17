@@ -27,12 +27,12 @@ def LumberCompany(lumber):
         main()
     if lumber_menu_choice == 2:
         circumference_input = int(input("Please enter the circumference of the wood you want to harvest: "))
-        lumber.remove_tree(circumference_input)
+        lumber.remove_tree(circumference_input, tree_list=lumber)
         LumberCompany(lumber)
     if lumber_menu_choice == 3:
         circumferences_input = int(input("Please enter the circumference of the woods you want to harvest " +
                                          "together: "))
-        lumber.remove_trees(circumferences_input)
+        lumber.remove_trees(circumferences_input,  tree_list=lumber)
         LumberCompany(lumber)
     if lumber_menu_choice == 4:
         quit()

@@ -25,6 +25,7 @@ class TreeFarm:
         for i in tree_database:
             if Type == i:
                 tree_list.append(self.tree_name)
+        raise TypeError("The type isn't match")
 
     def remove_tree(self, trunk_circumference):
         """
@@ -35,10 +36,7 @@ class TreeFarm:
         if trunk_circumference <= self.trunk_circumference:
             print("Harvest %s" % self.tree_name)
             del self.tree_name, self.Type, self.trunk_circumference, self.age
-            try:
-                trunk_circumference = NaN
-            except ValueError:
-                print("Try a numeric value")
+        raise ValueError("Try smaller, positive and numeric input")
 
     def remove_trees(self, trunk_circumference):
         """
@@ -46,11 +44,8 @@ class TreeFarm:
         :param trunk_circumference: identify the minimum size of the trees you want to harvest
         :return: tell user the matched tree is harvest and remove it
         """
-        for lumber.trunk_circumference in tree_list:
+        for self.trunk_circumference in tree_list:
             if trunk_circumference <= self.trunk_circumference:
                 print("Harvest %s" % self.tree_name)
                 del self.tree_name, self.Type, self.trunk_circumference, self.age
-                try:
-                    trunk_circumference = NaN
-                except ValueError:
-                    print("Try a numeric value")
+        raise ValueError("Try a smaller, positive, numeric value")
