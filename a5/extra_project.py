@@ -1,18 +1,11 @@
 import requests
-import geojson
 from pandas import DataFrame
 import json
 import plotly.graph_objects as go
 
 
 def query_covid_data_api():
-    # https://rapidapi.com/ShubhGupta/api/covid19-data?endpoint=apiendpoint_c6644257-83cf-4891-8e67-08c6640c9b6a
-    url = "https://covid19-data.p.rapidapi.com/all"
-    headers = {
-        'x-rapidapi-host': "covid19-data.p.rapidapi.com",
-        'x-rapidapi-key': "bd15e2cdccmshec0067fd8d4f01bp1cac7ejsnf9c59e492872"
-    }
-
+    url = "a5/product_status.json"
     res = requests.request("GET", url, headers=headers)
     res.raise_for_status()
 
@@ -22,46 +15,36 @@ def query_covid_data_api():
 def generate_formatted_df(raw_data):
     df_formatted = DataFrame()
 
-    country = []
-    lat = []
-    lon = []
-    confirmed = []
-    deaths = []
-    recovered = []
-    active = []
+    store = []
+    address = []
+    bread = []
+    steak = []
+    ramen = []
+    toliet_paper = []
 
     for i in range(len(raw_data)):
-        country.append(raw_data[i]["country"])
-        lat.append(raw_data[i]["latitude"])
-        lon.append(raw_data[i]["longitude"])
-        confirmed.append(raw_data[i]["confirmed"])
-        deaths.append(raw_data[i]["deaths"])
-        recovered.append(raw_data[i]["recovered"])
-        active.append(raw_data[i]["active"])
+        store.append(raw_data.keys())
+        address.append(raw_data[raw_data.keys()]["address"])
+        bread.append(raw_data[raw_data.keys()]["bread"])
+        steak.append(raw_data[raw_data.keys()]["steak"])
+        ramen.append(raw_data[raw_data.keys()]["ramen"])
+        toliet_paper.append(raw_data[raw_data.keys()]["toliet_paper"])
 
-    df_formatted["country"] = country
-    df_formatted["lon"] = lon
-    df_formatted["lat"] = lat
-    df_formatted["confirmed"] = confirmed
-    df_formatted["deaths"] = deaths
-    df_formatted["recovered"] = recovered
-    df_formatted["active"] = active
+    df_formatted["store"] = store
+    df_formatted["address"] = address
+    df_formatted["bread"] = bread
+    df_formatted["steak"] = steak
+    df_formatted["ramen"] = ramen
+    df_formatted["toliet_paper"] = toliet_paper
 
     return df_formatted
 
 
-def generate_confirmed_plot(df):
+def generate_confirmed_plot(df_formatted):
     map_confirmed = go.Scattermapbox(
-        name='Confirmed Cases',
-        lon=df['lon'],
-        lat=df['lat'],
-        text=df['country'],
-        mode='markers',
-        marker=go.scattermapbox.Marker(
-            size=df['confirmed']/1000,
-            color='orange',
-            opacity=0.8
-        )
+        store='store',
+        address='address',
+        bread='bread',
     )
 
     return map_confirmed

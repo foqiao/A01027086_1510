@@ -1,0 +1,32 @@
+{
+   "Costco - WestVan":{
+      "datetime":"1/7/1900",
+      "address":"605 Expo Blvd, Vancouver, BC",
+      "postal code":"V6B 1V4",
+      "wait time":8,
+      "toilet paper":8,
+      "ramen":8,
+      "steak":8,
+      "beer":""
+   },
+   "Costco - NorthVan":{
+      "datetime":2,
+      "address":"4500 Still Creek RD, Burnaby, BC",
+      "postal code":"V5C 0B5",
+      "wait time":3,
+      "toilet paper":4,
+      "ramen":5,
+      "steak":7,
+      "beer":8
+   },
+   "Costco - Downtown":{
+      "datetime":"01-17",
+      "address":"605 Expo Blvd, Vancouver, BC",
+      "postal code":"V6B 1V4",
+      "wait time":3,
+      "toilet paper":"dog",
+      "ramen":"dog",
+      "steak":"FALSE",
+      "beer":"FALSE"
+   }
+}
