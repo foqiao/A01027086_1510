@@ -1,5 +1,4 @@
 import requests
-from pandas import DataFrame
 import json
 import plotly.graph_objects as go
 
