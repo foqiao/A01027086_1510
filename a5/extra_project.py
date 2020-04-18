@@ -45,6 +45,8 @@ def generate_confirmed_plot(df_formatted):
         store='store',
         address='address',
         bread='bread',
+        steak='steak',
+        toliet_paper='toliet_paper'
     )
 
     return map_confirmed
